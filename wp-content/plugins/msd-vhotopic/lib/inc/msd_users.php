@@ -15,8 +15,7 @@ if (!class_exists('MSDContestUser')) {
             //Actions        
             add_filter( 'show_admin_bar', array(&$this,'fb_show_admin_bar') );
         }
-        
-    
+
         /**
          * @desc Add role
          */

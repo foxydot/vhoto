@@ -7,7 +7,7 @@ if (!class_exists('MSDContestEntryCPT')) {
 	    /**
 	    * PHP 4 Compatible Constructor
 	    */
-		public function MSDContestEntryCPT(){}
+		public function MSDContestEntryCPT(){$this->__construct();}
 	
 		/**
 		 * PHP 5 Constructor

@@ -96,6 +96,7 @@ if (!class_exists('MSDContestPackage')) {
         	//Initialize the options
         	$this->get_options();
         	//check requirements
+        	register_activation_hook(__FILE__, array(&$this,'check_requirements'));
         	//get sub-packages
         	requireDir(plugin_dir_path(__FILE__).'/lib/inc');
         	if(class_exists('MSDContestUser')){
@@ -105,8 +106,8 @@ if (!class_exists('MSDContestPackage')) {
         	}
         	if(class_exists('MSDContestEntryCPT')){
         		$this->cpt_class = new MSDContestEntryCPT();
-        		register_activation_hook( __FILE__, create_function(NULL,'flush_rewrite_rules( TRUE )') );
-        		register_deactivation_hook( __FILE__, create_function(NULL,'flush_rewrite_rules( TRUE )') );
+        		register_activation_hook( __FILE__, create_function('','flush_rewrite_rules( TRUE );') );
+        		register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules( TRUE );') );
         	}
         }
 
@@ -152,6 +153,17 @@ if (!class_exists('MSDContestPackage')) {
         	$this->options = $options;
         }
         /**
+         * @desc Check to see if requirements are met
+         */
+        function check_requirements(){
+        	if( !is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
+        		die( '<strong>ERROR:</strong> <a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a> is required for this plugin to be installed.' );
+        	}
+        	if( !is_plugin_active( 'gravity-forms-custom-post-types/gfcptaddon.php' ) ) {
+        		die( '<strong>ERROR:</strong> <a href="http://wordpress.org/plugins/gravity-forms-custom-post-types/" target="_blank">Gravity Forms + Custom Post Types</a> is required for this plugin to be installed.' );
+        	}
+        }
+        /**
          * @desc Checks to see if the given plugin is active.
          * @return boolean
          */
@@ -161,5 +173,6 @@ if (!class_exists('MSDContestPackage')) {
         /***************************/
   } //End Class
 } //End if class exists statement
+
 //instantiate
 $msd_contest = new MSDContestPackage();
