@@ -14,6 +14,8 @@ if (!class_exists('MSDContestUser')) {
         function __construct(){
             //Actions        
             add_filter( 'show_admin_bar', array(&$this,'fb_show_admin_bar') );
+            add_action('register_form',array(&$this,'show_extra_fields'));
+            add_action('user_register', array(&$this,'register_role'));
         }
 
         /**
@@ -24,12 +26,38 @@ if (!class_exists('MSDContestUser')) {
         		'read' => TRUE,
         		'upload_files' => TRUE,
         		'edit_contest_entry' => TRUE,
-        		'publish_contest_entry' => TRUE
+        		'publish_contest_entry' => TRUE,
+        		'place_vote' => TRUE
         	));
+        	$role = get_role('subscriber');
+        	$role->add_cap( 'place_vote' );
         }  
 
         function remove_contest_roles(){
-        	remove_role('contest');    
+        	remove_role('contest');  
+        	$role = get_role('subscriber');
+        	$role->remove_cap( 'place_vote' );
+        }
+        
+        /*
+         * TODO
+         */
+			function show_extra_fields(){ ?>
+			<input id="role" type="hidden" tabindex="20" size="25" value= "<?php if (isset($_GET['role'])){echo $_GET['role'];} ?>"  name="role"/>
+				<?php
+			}
+			
+         function register_role($user_id, $password="", $meta=array()) {
+        
+        	$userdata = array();
+        	$userdata['ID'] = $user_id;
+        	$userdata['role'] = $_POST['role'];
+        
+        	//only allow if user role is my_role
+        
+        	if ($userdata['role'] == "my_role"){
+        		wp_update_user($userdata);
+        	}
         }
         
         function fb_show_admin_bar() {

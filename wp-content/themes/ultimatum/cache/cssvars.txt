@@ -1,0 +1,2110 @@
+$aitself='';
+$tagline='';
+$opt = get_option(THEME_SLUG.'_general');
+if($opt[text_logo]==1){
+$aitself=array (
+		"name"	=> __("Site Logo",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "aidlogo",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '36',
+						"line-height" => '42',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+		);
+$tagline= array (
+		"name"	=> __("Tag Line",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "spanidtagline",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+		)
+		;	
+}
+$options = array(
+	array(
+		"name" => __("General",THEME_ADMIN_LANG_DOMAIN).'',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Color and Image",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Body Background Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "Select your desired backround color for the body delete the text box content for transparent.",
+			"id" => "body",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+		array(
+			"name" => __("Background Image",THEME_ADMIN_LANG_DOMAIN),
+			"desc" =>__( "Paste the full URL (include <code>http://</code>) of image here or you can insert the image through the button. To remove image just delete the text in field.",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "body",
+			"property" => "background-image",
+			"default" => "",
+			"type" => "uploadCSS"
+		),
+		array(
+			"name" => __("Image Location",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "body",
+			"property" => "background-position",
+			"default" => "top left",
+			"options" => array("top left"=>__('Top Left',THEME_ADMIN_LANG_DOMAIN),
+								"top right"=>__('Top Right',THEME_ADMIN_LANG_DOMAIN),
+								"top center"=>__('Top Center',THEME_ADMIN_LANG_DOMAIN),
+								"bottom left"=>__('Bottom Left',THEME_ADMIN_LANG_DOMAIN),
+								"bottom right"=>__('Bottom Right',THEME_ADMIN_LANG_DOMAIN),
+								"bottom center"=>__('Bottom Center',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+		array(
+			"name" => __("Image Repeat",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "body",
+			"property" => "background-repeat",
+			"default" => "repeat",
+			"options" => array("repeat"=>__('Repeat',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-x"=>__('Repeat Horizontal',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-y"=>__('Repeat Vertical',THEME_ADMIN_LANG_DOMAIN),
+								"no-repeat"=>__('Do not Repeat',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+		
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Logo",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "title"
+	),
+	array(
+		"name" => __("Margins",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Margin-Top ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "idlogo-container",
+			"property" =>"margin-top",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Margin-Bottom ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "idlogo-container",
+			"property" =>"margin-bottom",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+		"type" => "endnosave"
+	),
+	array(
+		"name" => __("This part is enabled only if you selected Logo as Text in general Settings",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "explain"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	$aitself,
+	$tagline,
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Basic Fonts and Colors",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "title"
+	),
+	array(
+		"name" => __("The fonts available below (and throughout the system) are standard web fonts and the fonts enabled from Font Library",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "explain"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> "General",
+		"type"	=> "txtElement",
+		"id"	=> "body",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+				
+	),
+	array (
+		"name"	=> "H1",
+		"type"	=> "txtElement",
+		"id"	=> "h1",
+		"default" => array(
+						"font-family" => 'google-Yanone Kaffeesatz-css-Yanone Kaffeesatz:400,700',
+						"font-size" => '36',
+						"line-height" => '42',
+						"color" => "000000",
+						"font-weight" => "bold",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> "H2",
+		"type"	=> "txtElement",
+		"id"	=> "h2",
+		"default" => array(
+						"font-family" => 'google-Yanone Kaffeesatz-css-Yanone Kaffeesatz:400,700',
+						"font-size" => '30',
+						"line-height" => '36',
+						"color" => "000000",
+						"font-weight" => "bold",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> "H3",
+		"type"	=> "txtElement",
+		"id"	=> "h3",
+		"default" => array(
+						"font-family" => 'google-Yanone Kaffeesatz-css-Yanone Kaffeesatz:400,700',
+						"font-size" => '24',
+						"line-height" => '30',
+						"color" => "000000",
+						"font-weight" => "bold",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> "H4",
+		"type"	=> "txtElement",
+		"id"	=> "h4",
+		"default" => array(
+						"font-family" => 'google-Yanone Kaffeesatz-css-Yanone Kaffeesatz:400,700',
+						"font-size" => '18',
+						"line-height" => '24',
+						"color" => "000000",
+						"font-weight" => "bold",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> "H5",
+		"type"	=> "txtElement",
+		"id"	=> "h5",
+		"default" => array(
+						"font-family" => 'google-Yanone Kaffeesatz-css-Yanone Kaffeesatz:400,700',
+						"font-size" => '14',
+						"line-height" => '18',
+						"color" => "000000",
+						"font-weight" => "bold",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> "H6",
+		"type"	=> "txtElement",
+		"id"	=> "h6",
+		"default" => array(
+						"font-family" => 'google-Yanone Kaffeesatz-css-Yanone Kaffeesatz:400,700',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "bold",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> "Quotes",
+		"type"	=> "txtElement",
+		"id"	=> "blockquote",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '16',
+						"line-height" => '24',
+						"color" => "000000",
+						"font-weight" => "bold",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> "a",
+		"type"	=> "txtElement",
+		"id"	=> "a",
+		"default" => array(
+						"color" => "000000",
+						"font-weight" => "bold",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array (
+		"name"	=> "a:hover",
+		"type"	=> "txtElement",
+		"id"	=> "ahover",
+		"default" => array(
+						"color" => "000000",
+						"font-weight" => "bold",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Post Elements",THEME_ADMIN_LANG_DOMAIN).'<a name="postel"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Backgrounds,Borders and Padding",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Archive Page Title Padding Left",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "h1classmulti-post-title",
+			"property" =>"padding-left",
+			"default" => "0",
+			"type" => "textCSS"
+		),
+	array(
+			"name" => __("Archive Page Title Background Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "h1classmulti-post-title",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Archive Page Title Background Image",THEME_ADMIN_LANG_DOMAIN),
+			"desc" =>__( "Paste the full URL (include <code>http://</code>) of image here or you can insert the image through the button. To remove image just delete the text in field.",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "h1classmulti-post-title",
+			"property" => "background-image",
+			"default" => "",
+			"type" => "uploadCSS"
+		),
+	array(
+			"name" => __("Archive Page Title Background Image Location",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "h1classmulti-post-title",
+			"property" => "background-position",
+			"default" => "top left",
+			"options" => array("top left"=>__('Top Left',THEME_ADMIN_LANG_DOMAIN),
+								"top right"=>__('Top Right',THEME_ADMIN_LANG_DOMAIN),
+								"top center"=>__('Top Center',THEME_ADMIN_LANG_DOMAIN),
+								"bottom left"=>__('Bottom Left',THEME_ADMIN_LANG_DOMAIN),
+								"bottom right"=>__('Bottom Right',THEME_ADMIN_LANG_DOMAIN),
+								"bottom center"=>__('Bottom Center',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+		array(
+			"name" => __("Archive Page Title Background Image Repeat",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "h1classmulti-post-title",
+			"property" => "background-repeat",
+			"default" => "repeat",
+			"options" => array("repeat"=>__('Repeat',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-x"=>__('Repeat Horizontal',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-y"=>__('Repeat Vertical',THEME_ADMIN_LANG_DOMAIN),
+								"no-repeat"=>__('Do not Repeat',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Archive Page Title Border ",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classmulti-post-title",
+			"property" =>"border-width",
+			"default" => "none",
+			"options" => array("0"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 1px 0"=>__('Top and Bottom',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 0 0"=>__('Only Top',THEME_ADMIN_LANG_DOMAIN),
+								"0 0 1px 0"=>__('Only Bottom',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Archive Page Title Border Style",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classmulti-post-title",
+			"property" =>"border-style",
+			"default" => "none",
+			"options" => array("none"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"solid"=>__('Solid',THEME_ADMIN_LANG_DOMAIN),
+								"dotted"=>__('Dotted',THEME_ADMIN_LANG_DOMAIN),
+								"dashed"=>__('Dashed',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Archive Page Title Border Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classmulti-post-title",
+			"property" =>"border-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Post Container Padding Top",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-inner",
+			"property" =>"padding-top",
+			"default" => "0",
+			"type" => "textCSS"
+		),
+	array(
+			"name" => __("Post Container Padding Bottom",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-inner",
+			"property" =>"padding-bottom",
+			"default" => "0",
+			"type" => "textCSS"
+		),
+	array(
+			"name" => __("Post Container Background Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-inner",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Post Container Background Image",THEME_ADMIN_LANG_DOMAIN),
+			"desc" =>__( "Paste the full URL (include <code>http://</code>) of image here or you can insert the image through the button. To remove image just delete the text in field.",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclasspost-inner",
+			"property" => "background-image",
+			"default" => "",
+			"type" => "uploadCSS"
+		),
+	array(
+			"name" => __("Post Container Background Image Location",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-inner",
+			"property" => "background-position",
+			"default" => "top left",
+			"options" => array("top left"=>__('Top Left',THEME_ADMIN_LANG_DOMAIN),
+								"top right"=>__('Top Right',THEME_ADMIN_LANG_DOMAIN),
+								"top center"=>__('Top Center',THEME_ADMIN_LANG_DOMAIN),
+								"bottom left"=>__('Bottom Left',THEME_ADMIN_LANG_DOMAIN),
+								"bottom right"=>__('Bottom Right',THEME_ADMIN_LANG_DOMAIN),
+								"bottom center"=>__('Bottom Center',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+		array(
+			"name" => __("Post Container Background Image Repeat",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-inner",
+			"property" => "background-repeat",
+			"default" => "repeat",
+			"options" => array("repeat"=>__('Repeat',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-x"=>__('Repeat Horizontal',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-y"=>__('Repeat Vertical',THEME_ADMIN_LANG_DOMAIN),
+								"no-repeat"=>__('Do not Repeat',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Post Container Border ",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-inner",
+			"property" =>"border-width",
+			"default" => "none",
+			"options" => array("0"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 1px 0"=>__('Top and Bottom',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 0 0"=>__('Only Top',THEME_ADMIN_LANG_DOMAIN),
+								"0 0 1px 0"=>__('Only Bottom',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Post Container Border Style",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-inner",
+			"property" =>"border-style",
+			"default" => "none",
+			"options" => array("none"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"solid"=>__('Solid',THEME_ADMIN_LANG_DOMAIN),
+								"dotted"=>__('Dotted',THEME_ADMIN_LANG_DOMAIN),
+								"dashed"=>__('Dashed',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Post Container Border Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-inner",
+			"property" =>"border-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Post Title Padding Left",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-header",
+			"property" =>"padding-left",
+			"default" => "0",
+			"type" => "textCSS"
+		),
+	array(
+			"name" => __("Post Title Background Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-header",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Post Title Background Image",THEME_ADMIN_LANG_DOMAIN),
+			"desc" =>__( "Paste the full URL (include <code>http://</code>) of image here or you can insert the image through the button. To remove image just delete the text in field.",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classpost-header",
+			"property" => "background-image",
+			"default" => "",
+			"type" => "uploadCSS"
+		),
+	array(
+			"name" => __("Post Title Background Image Location",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-header",
+			"property" => "background-position",
+			"default" => "top left",
+			"options" => array("top left"=>__('Top Left',THEME_ADMIN_LANG_DOMAIN),
+								"top right"=>__('Top Right',THEME_ADMIN_LANG_DOMAIN),
+								"top center"=>__('Top Center',THEME_ADMIN_LANG_DOMAIN),
+								"bottom left"=>__('Bottom Left',THEME_ADMIN_LANG_DOMAIN),
+								"bottom right"=>__('Bottom Right',THEME_ADMIN_LANG_DOMAIN),
+								"bottom center"=>__('Bottom Center',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+		array(
+			"name" => __("Post Title Background Image Repeat",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-header",
+			"property" => "background-repeat",
+			"default" => "repeat",
+			"options" => array("repeat"=>__('Repeat',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-x"=>__('Repeat Horizontal',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-y"=>__('Repeat Vertical',THEME_ADMIN_LANG_DOMAIN),
+								"no-repeat"=>__('Do not Repeat',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Post Title Border ",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-header",
+			"property" =>"border-width",
+			"default" => "none",
+			"options" => array("0"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 1px 0"=>__('Top and Bottom',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 0 0"=>__('Only Top',THEME_ADMIN_LANG_DOMAIN),
+								"0 0 1px 0"=>__('Only Bottom',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Post Title Border Style",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-header",
+			"property" =>"border-style",
+			"default" => "none",
+			"options" => array("none"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"solid"=>__('Solid',THEME_ADMIN_LANG_DOMAIN),
+								"dotted"=>__('Dotted',THEME_ADMIN_LANG_DOMAIN),
+								"dashed"=>__('Dashed',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Post Title Border Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-header",
+			"property" =>"border-color",
+			"default" => "",
+			"type" => "color"
+		),
+		array(
+			"name" => __("Meta Background Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-meta",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Meta Background Image",THEME_ADMIN_LANG_DOMAIN),
+			"desc" =>__( "Paste the full URL (include <code>http://</code>) of image here or you can insert the image through the button. To remove image just delete the text in field.",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclasspost-meta",
+			"property" => "background-image",
+			"default" => "",
+			"type" => "uploadCSS"
+		),
+	array(
+			"name" => __("Meta Background Image Location",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-meta",
+			"property" => "background-position",
+			"default" => "top left",
+			"options" => array("top left"=>__('Top Left',THEME_ADMIN_LANG_DOMAIN),
+								"top right"=>__('Top Right',THEME_ADMIN_LANG_DOMAIN),
+								"top center"=>__('Top Center',THEME_ADMIN_LANG_DOMAIN),
+								"bottom left"=>__('Bottom Left',THEME_ADMIN_LANG_DOMAIN),
+								"bottom right"=>__('Bottom Right',THEME_ADMIN_LANG_DOMAIN),
+								"bottom center"=>__('Bottom Center',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+		array(
+			"name" => __("Meta Background Image Repeat",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "divclasspost-meta",
+			"property" => "background-repeat",
+			"default" => "repeat",
+			"options" => array("repeat"=>__('Repeat',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-x"=>__('Repeat Horizontal',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-y"=>__('Repeat Vertical',THEME_ADMIN_LANG_DOMAIN),
+								"no-repeat"=>__('Do not Repeat',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Meta Border ",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-meta",
+			"property" =>"border-width",
+			"default" => "none",
+			"options" => array("0"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 1px 0"=>__('Top and Bottom',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 0 0"=>__('Only Top',THEME_ADMIN_LANG_DOMAIN),
+								"0 0 1px 0"=>__('Only Bottom',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Meta Border Style",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-meta",
+			"property" =>"border-style",
+			"default" => "none",
+			"options" => array("none"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"solid"=>__('Solid',THEME_ADMIN_LANG_DOMAIN),
+								"dotted"=>__('Dotted',THEME_ADMIN_LANG_DOMAIN),
+								"dashed"=>__('Dashed',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Meta Border Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-meta",
+			"property" =>"border-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Meta Padding Top",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-meta",
+			"property" =>"padding-top",
+			"default" => "0",
+			"type" => "textCSS"
+		),
+	array(
+			"name" => __("Meta Padding Bottom",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classpost-meta",
+			"property" =>"padding-bottom",
+			"default" => "0",
+			"type" => "textCSS"
+		),
+	array(
+		"type" => "endnosave",
+		),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Archive Title",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "h1classmulti-post-title",
+		"default" => array(
+						"font-size" => '24',
+						"line-height" => '30',
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Entry Title",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "h2spaceaclasspost-title",
+		"default" => array(
+						"font-size" => '24',
+						"line-height" => '30',
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Post Meta",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclasspost-metavirgulspacedivclasspost-metaspacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Post Taxonomy Titles",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclasspost-taxonomyspacespan",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Post Taxonomy Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclasspost-taxonomyspacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Read More Link",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "aclassreadmorecontent",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+
+	
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Comments",THEME_ADMIN_LANG_DOMAIN).'<a name="comments"></a>',
+		"type" => "title"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Comments Title ",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "h3idcomments_title",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '20',
+						"line-height" => '25',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Comment Author",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "citeclasscomment_author",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Comment Time",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclasscomment_time",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Comment Text",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclasscomment_text",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array (
+		"name"	=> __("Reply, Cancel Reply Link",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "aclasscomment-reply-linkvirgulspaceaclasscancel-comment-reply-link",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Comment Form Title",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "h3classrespond",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Comment Form Labels",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "formidcommentformspacelabel",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("BreadCrumbs",THEME_ADMIN_LANG_DOMAIN).'<a name="bcumb"></a>',
+		"type" => "title"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	
+	array (
+		"name"	=> __("General",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclassbreadcrumbs-plusspacepspacespanvirgulspacedivclassbreadcrumbs-plusspacepvirgulspacedivclassbreadcrumbs-plusspacepspacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Title (You are here)",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclassbreadcrumbs-plusspacepspacespanclassbreadcrumbs-title",
+		"default" => array(
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array (
+		"name"	=> __("Current",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclassbreadcrumbs-plusspacepspacestrong",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"font-weight" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Page Navigation",THEME_ADMIN_LANG_DOMAIN).'<a name="navi"></a>',
+		"type" => "title"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("General",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwp-pagenavispaceavirgulspaceclasswp-pagenavispacespan",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array (
+		"name"	=> __("Current",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwp-pagenavispacespanclasscurrent",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array(
+		"type" => "endnosave"
+	),
+	array(
+		"name" => __("Background and Border Colors",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Background Color",THEME_ADMIN_LANG_DOMAIN),
+			"id"	=> "classwp-pagenavispaceavirgulspaceclasswp-pagenavispacespan",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Border Color",THEME_ADMIN_LANG_DOMAIN),
+			"id"	=> "divclasswp-pagenavispaceavirgulspacedivclasswp-pagenavispacespan",
+			"property" =>"border-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Current Background Color",THEME_ADMIN_LANG_DOMAIN),
+			"id"	=> "classwp-pagenavispacespanclasscurrent",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Border Color",THEME_ADMIN_LANG_DOMAIN),
+			"id"	=> "divclasswp-pagenavispacespanclasscurrent",
+			"property" =>"border-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Horizontal Mega Menu",THEME_ADMIN_LANG_DOMAIN).'<a name="hmm"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Colors And Margins",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Margin-Top ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classwfm-mega-menu",
+			"property" =>"margin-top",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Margin-Bottom ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classwfm-mega-menu",
+			"property" =>"margin-bottom",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Top Level Active background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classwfm-mega-menuspaceulspaceliclasscurrent-menu-ancestorvirgulspaceclasswfm-mega-menuspaceulspaceliclasscurrent-menu-item",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Top Level Hover and sub items background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classwfm-mega-menuspaceulspaceli_-hovervirgulspaceclasswfm-mega-menuspaceulspacelispaceclasssub-container",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Second Level Title Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id"	=> "classwfm-mega-menuspaceulspacelispaceclasssubspaceliclassmega-hdrspaceaclassmega-hdr-a",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),	
+	array(
+			"name" => __("Second Level and Third Level Hover Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id"	=> "classwfm-mega-menuspaceulspacelispaceclasssub-containerclassnon-megaspacelispacea_-hovervirgulspaceclasswfm-mega-menuspaceulspacelispaceclasssubspaceulclasssub-menuspacelispacea_-hover",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),	
+	array(
+		"type" => "endnosave"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Top Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-mega-menuspaceulclassmenuspacelispacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Top Level Links Active",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-mega-menuspaceulspaceliclasscurrent-menu-ancestorspaceavirgulspaceclasswfm-mega-menuspaceulspaceliclasscurrent-menu-itemspacea",
+		"default" => array(
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+
+	),
+	array (
+		"name"	=> __("Top Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-mega-menuspaceulclassmenuspaceli_-hoverspacea",
+		"default" => array(
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+
+	),
+	array ( 
+		"name"	=> __("Second Level Title Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-mega-menuspaceulspacelispaceclasssubspaceliclassmega-hdrspaceaclassmega-hdr-a",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Second Level Title Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-mega-menuspaceulspacelispaceclasssubspaceliclassmega-hdrspaceaclassmega-hdr-a_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Third Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-mega-menuspaceulspacelispaceclasssubspaceulclasssub-menuspacelispacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Third Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-mega-menuspaceulspacelispaceclasssubspaceulclasssub-menuspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Second Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-mega-menuspaceulspacelispaceclasssub-containerclassnon-megaspacelispacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Second Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-mega-menuspaceulspacelispaceclasssub-containerclassnon-megaspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Horizontal Dropdown Menu",THEME_ADMIN_LANG_DOMAIN).'<a name="hm"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Colors And Margins",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Margin-Top ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuh",
+			"property" =>"margin-top",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Margin-Bottom ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuh",
+			"property" =>"margin-bottom",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Sub Item Width ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuhspaceulspacelispaceul",
+			"property" =>"width",
+			"default" => "200",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Top Level Items Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuhspaceulspacelispacea",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Top Level Hover and sub items background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuhspaceulspaceli_-hovervirgulclassddsmoothmenuhspaceulspacelispaceaclassselectedvirgulclassddsmoothmenuhspaceulspacelispacea_-hovervirgulclassddsmoothmenuhspaceulspacelispaceulclasssub-menuspacelivirgulspaceclassddsmoothmenuhspaceulspacelispaceulclasssub-menuspacelispacea",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Sub Levels Hover background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuhspaceulspacelispaceulspaceli_-hovervirgulspaceclassddsmoothmenuhspaceulspacelispaceulspacelispacea_-hover",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+		
+	array(
+		"type" => "endnosave"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Top Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classddsmoothmenuhspaceulspacelispacea_-linkvirgulclassddsmoothmenuhspaceulspacelispacea_-visited",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Top Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classddsmoothmenuhspaceulspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Second Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classddsmoothmenuhspaceulspacelispacespaceulspacelispacea_-linkvirgulclassddsmoothmenuhspaceulspacelispacespaceulspacelispacea_-visited",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Second Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classddsmoothmenuhspaceulspacelispacespaceulspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Horizontal Menu",THEME_ADMIN_LANG_DOMAIN).'<a name="hndm"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Colors And Margins",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Margin-Top ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclasshorizontal-menu",
+			"property" =>"margin-top",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Margin-Bottom ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclasshorizontal-menu",
+			"property" =>"margin-bottom",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	
+	array(
+			"name" => __("Item Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclasshorizontal-menuspaceulspacelispacea",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Hover Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclasshorizontal-menuspaceulspaceli_-hover",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Seperator Color",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclasshorizontal-menuspaceulspaceli",
+			"property" =>"border-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+		"type" => "endnosave"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Item Text",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclasshorizontal-menuspaceulspacelivirgulspacedivclasshorizontal-menuspaceulspacelispacea_-linkvirguldivclasshorizontal-menuspaceulspacelispacea_-visited",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Item Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclasshorizontal-menuspaceulspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Vertical Mega Menu",THEME_ADMIN_LANG_DOMAIN).'<a name="vmm"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Colors And Margins",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Margin-Top ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classwfm-vertical-mega-menu",
+			"property" =>"margin-top",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Margin-Bottom ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classwfm-vertical-mega-menu",
+			"property" =>"margin-bottom",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Top Level Hover and sub items background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classwfm-vertical-mega-menuspaceulspaceli_-hovervirgulspaceclasswfm-vertical-mega-menuspaceulspacelispaceclasssub-container",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Second Level Title Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id"	=> "classwfm-vertical-mega-menuspaceulspacelispaceclasssubspaceliclassmega-hdrspaceaclassmega-hdr-a",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),	
+	array(
+			"name" => __("Second Level and Third Level Hover Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id"	=> "classwfm-vertical-mega-menuspaceulspacelispaceclasssub-containerclassnon-megaspacelispacea_-hovervirgulspaceclasswfm-vertical-mega-menuspaceulspacelispaceclasssubspaceulclasssub-menuspacelispacea_-hover",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),	
+	array(
+		"type" => "endnosave"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Top Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-vertical-mega-menuspaceulspacelispacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Top Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-vertical-mega-menuspaceulspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Second Level Title Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-vertical-mega-menuspaceulspacelispaceclasssubspaceliclassmega-hdrspaceaclassmega-hdr-a",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Second Level Title Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-vertical-mega-menuspaceulspacelispaceclasssubspaceliclassmega-hdrspaceaclassmega-hdr-a_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Third Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-vertical-mega-menuspaceulspacelispaceclasssubspaceulclasssub-menuspacelispacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Third Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-vertical-mega-menuspaceulspacelispaceclasssubspaceulclasssub-menuspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array (
+		"name"	=> __("Second Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-vertical-mega-menuspaceulspacelispaceclasssub-containerclassnon-megaspacelispacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Second Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classwfm-vertical-mega-menuspaceulspacelispaceclasssub-containerclassnon-megaspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Vertical Dropdown Menu",THEME_ADMIN_LANG_DOMAIN).'<a name="vm"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Colors And Margins",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Margin-Top ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuv",
+			"property" =>"margin-top",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Margin-Bottom ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuv",
+			"property" =>"margin-bottom",
+			"default" => "0",
+			"type" => "textCSS",
+		),
+	array(
+			"name" => __("Top Level Items Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuvspaceulspacelispacea_-linkvirgulclassddsmoothmenuvspaceulspacelispacea_-visitedvirgulclassddsmoothmenuvspaceulspacelispacea_-active",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Top Level Hover and sub items background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuvspaceulspaceli_-hovervirgulclassddsmoothmenuvspaceulspacelispaceaclassselectedvirgulclassddsmoothmenuvspaceulspacelispacea_-hovervirgulclassddsmoothmenuvspaceulspacelispaceulclasssub-menuspacelivirgulspaceclassddsmoothmenuvspaceulspacelispaceulclasssub-menuspacelispacea",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Sub Levels Hover background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classddsmoothmenuvspaceulspacelispaceulspaceli_-hovervirgulspaceclassddsmoothmenuvspaceulspacelispaceulspacelispacea_-hover",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+		"type" => "endnosave"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Top Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classddsmoothmenuvspaceulspacelispacea_-linkvirgulclassddsmoothmenuvspaceulspacelispacea_-visited",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Top Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classddsmoothmenuvspaceulspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Second Level Links",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classddsmoothmenuvspaceulspacelispacespaceulspacelispacea_-linkvirgulclassddsmoothmenuvspaceulspacelispacespaceulspacelispacea_-visited",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Second Level Links Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classddsmoothmenuvspaceulspacelispacespaceulspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Vertical Menu",THEME_ADMIN_LANG_DOMAIN).'<a name="vndm"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Colors And Margins",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Item Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classvertical-menuspacea",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Hover Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclassvertical-menuspacea_-hover",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+		"type" => "endnosave"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Item Text",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classvertical-menuspacea_-linkvirgulclassvertical-menuspacea_-visited",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => 'on',
+	),
+	array ( 
+		"name"	=> __("Item Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classvertical-menuspacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Tabs",THEME_ADMIN_LANG_DOMAIN).'<a name="tab"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Colors",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Inactive Tab ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "ulclasstabsspacelispacea",
+			"property" =>"background-color",
+			"default" => "0",
+			"type" => "color",
+		),
+	array(
+			"name" => __("Hover Tab ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "ulclasstabsspacelispacea_-hover",
+			"property" =>"background-color",
+			"default" => "0",
+			"type" => "color",
+		),
+	array(
+			"name" => __("Active Tab",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "ulclasstabsspacelispaceaclasscurrent",
+			"property" =>"background-color",
+			"default" => "0",
+			"type" => "color",
+		),
+	array(
+			"name" => __("Content Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclasstabs-wrapperspacedivclasspanes",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+		"type" => "endnosave"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Default Tab Title",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "ulclasstabsspacelispacea",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		
+	),
+	array (
+		"name"	=> __("Active Tab Title",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "ulclasstabsspacelispaceaclasscurrent",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array ( 
+		"name"	=> __("Tab Title Hover",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "ulclasstabsspacelispacea_-hover",
+		"default" => array(
+						"color" => "000000",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array ( 
+		"name"	=> __("Tab Content",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclasstabs-wrapperspacedivclasspanes",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Accordions",THEME_ADMIN_LANG_DOMAIN).'<a name="accord"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Colors",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Inactive Title ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classaccordion-toggle",
+			"property" =>"background-color",
+			"default" => "0",
+			"type" => "color",
+		),
+	array(
+			"name" => __("Active Title",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classaccordionspaceclasscurrent",
+			"property" =>"background-color",
+			"default" => "0",
+			"type" => "color",
+		),
+	array(
+			"name" => __("Content Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclassaccordionspacedivclasspane",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+		"type" => "endnosave"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Accordion Title ",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "h4classaccordion-toggle",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array ( 
+		"name"	=> __("Accordion Content",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclassaccordionspacedivclasspane",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array(
+		"type" => "end"
+	),	
+	array(
+		"name" => __("Togglers",THEME_ADMIN_LANG_DOMAIN).'<a name="toggle"></a>',
+		"type" => "title"
+	),
+	array(
+		"name" => __("Background Colors",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Title ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classtoggle_title",
+			"property" =>"background-color",
+			"default" => "0",
+			"type" => "color",
+		),
+	array(
+			"name" => __("Active Title",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classacctogg_active",
+			"property" =>"background-color",
+			"default" => "0",
+			"type" => "color",
+		),
+	array(
+			"name" => __("Content Background ",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "divclasstoggle",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+		"type" => "endnosave"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Title ",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classtoggle_titlespaceaclasstoggle-title",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => "on",
+	),
+	array ( 
+		"name"	=> __("Content",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "divclasstoggle_content",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Slide Show Elements",THEME_ADMIN_LANG_DOMAIN).'<a name="slider"></a>',
+		"type" => "title"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Titles -Anything - SlideDeck",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "h3classslidertitle",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => "on",
+	),
+	array ( 
+		"name"	=> __("Content -Anything - SlideDeck",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "pclassslidertext",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	array (
+		"name"	=> __("Caption Titles -Anything - S3",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classanyCaptionspaceh3classslidertitlevirgulspaceclasss3captionspaceh3classslidertitle",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => "on",
+	),
+	array ( 
+		"name"	=> __("Caption Content -Anything - S3",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "classanyCaptionspacepclassslidertextvirgulspaceclasss3captionspacepclassslidertext",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+	),
+	//anyCaption
+	array(
+		"type" => "end"
+	),
+	array(
+		"name" => __("Widget Specific",THEME_ADMIN_LANG_DOMAIN).'<a name="widget"></a>',
+		"type" => "title"
+	),
+	array (
+		"type" => "txtElementHead",
+	),
+	array (
+		"name"	=> __("Super Title",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "h1classsuper-title",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"color" => "000000",
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => "on",
+	),
+	array (
+		"name"	=> __("Widget Titles(color won't work)",THEME_ADMIN_LANG_DOMAIN),
+		"type"	=> "txtElement",
+		"id"	=> "h3classelement-title",
+		"default" => array(
+						"font-family" => '"Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif',
+						"font-size" => '12',
+						"line-height" => '15',
+						"font-weight" => "normal",
+						"font-style" => "normal",
+						"text-decoration" => "none",
+					),
+		"cufon" => "on",
+	),
+	array(
+		"type" => "endnosave",
+	),
+	array(
+		"name" => __("Widget Titles Decoration",THEME_ADMIN_LANG_DOMAIN),
+		"type" => "start"
+	),
+	array(
+			"name" => __("Title Background Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classelement-title",
+			"property" =>"background-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+			"name" => __("Title Background Image",THEME_ADMIN_LANG_DOMAIN),
+			"desc" =>__( "Paste the full URL (include <code>http://</code>) of image here or you can insert the image through the button. To remove image just delete the text in field.",THEME_ADMIN_LANG_DOMAIN),
+			"id" => "classelement-title",
+			"property" => "background-image",
+			"default" => "",
+			"type" => "uploadCSS"
+		),
+	array(
+			"name" => __("Title Background Image Location",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classelement-title",
+			"property" => "background-position",
+			"default" => "top left",
+			"options" => array("top left"=>__('Top Left',THEME_ADMIN_LANG_DOMAIN),
+								"top right"=>__('Top Right',THEME_ADMIN_LANG_DOMAIN),
+								"top center"=>__('Top Center',THEME_ADMIN_LANG_DOMAIN),
+								"bottom left"=>__('Bottom Left',THEME_ADMIN_LANG_DOMAIN),
+								"bottom right"=>__('Bottom Right',THEME_ADMIN_LANG_DOMAIN),
+								"bottom center"=>__('Bottom Center',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+		array(
+			"name" => __("Title Background Image Repeat",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classelement-title",
+			"property" => "background-repeat",
+			"default" => "repeat",
+			"options" => array("repeat"=>__('Repeat',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-x"=>__('Repeat Horizontal',THEME_ADMIN_LANG_DOMAIN),
+								"repeat-y"=>__('Repeat Vertical',THEME_ADMIN_LANG_DOMAIN),
+								"no-repeat"=>__('Do not Repeat',THEME_ADMIN_LANG_DOMAIN),
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Title Border ",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classelement-title",
+			"property" =>"border-width",
+			"default" => "none",
+			"options" => array("0"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 1px 0"=>__('Top and Bottom',THEME_ADMIN_LANG_DOMAIN),
+								"1px 0 0 0"=>__('Only Top',THEME_ADMIN_LANG_DOMAIN),
+								"0 0 1px 0"=>__('Only Bottom',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Title Border Style",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classelement-title",
+			"property" =>"border-style",
+			"default" => "none",
+			"options" => array("none"=>__('None',THEME_ADMIN_LANG_DOMAIN),
+								"solid"=>__('Solid',THEME_ADMIN_LANG_DOMAIN),
+								"dotted"=>__('Dotted',THEME_ADMIN_LANG_DOMAIN),
+								"dashed"=>__('Dashed',THEME_ADMIN_LANG_DOMAIN),
+								
+			),
+			"type" => "selectCSS"
+		),
+	array(
+			"name" => __("Title Border Color",THEME_ADMIN_LANG_DOMAIN),
+			"desc" => "",
+			"id" => "classelement-title",
+			"property" =>"border-color",
+			"default" => "",
+			"type" => "color"
+		),
+	array(
+		"type" => "end"
+	),	
+		
+);
+return array(
+	'auto' => true,
+	'name' => 'css',
+	'options' => $options
+);
