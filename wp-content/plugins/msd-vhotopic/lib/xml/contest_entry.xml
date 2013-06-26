@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms version="1.6.12">
+	<form labelPlacement="top_label" useCurrentUserAsAuthor="1" postAuthor="1" postCategory="1" postFormat="0" postStatus="publish">
+		<title><![CDATA[Enter a Photo Contest]]></title>
+		<confirmation type="message">
+			<message><![CDATA[Thanks for contacting us! We will get in touch with you shortly.]]></message>
+		</confirmation>
+		<button type="text">
+			<text><![CDATA[Submit]]></text>
+		</button>
+		<fields>
+			<field id="1" isRequired="1" size="medium" type="post_title">
+				<label><![CDATA[Photo Title]]></label>
+				<saveAsCPT><![CDATA[contest_entry]]></saveAsCPT>
+			</field>
+			<field id="2" isRequired="1" size="medium" type="post_image" displayDescription="1">
+				<label><![CDATA[Upload Your Photo]]></label>
+				<allowedExtensions><![CDATA[jpg, jpeg, png, gif]]></allowedExtensions>
+				<postFeaturedImage><![CDATA[1]]></postFeaturedImage>
+			</field>
+			<field id="4" isRequired="1" size="medium" type="post_category" displayAllCategories="1" inputType="select">
+				<label><![CDATA[Select Category]]></label>
+				<categoryInitialItem><![CDATA[Select a category]]></categoryInitialItem>
+				<categoryInitialItemEnabled><![CDATA[1]]></categoryInitialItemEnabled>
+			</field>
+			<field id="3" isRequired="1" size="medium" type="select">
+				<label><![CDATA[Select Contest]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[Select a contest]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Contest One]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Contest Three]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Contest Two]]></text>
+					</choice>
+				</choices>
+				<populateTaxonomy><![CDATA[contest]]></populateTaxonomy>
+			</field>
+			<field id="5" type="post_custom_field" size="medium" inputType="number" numberFormat="decimal_dot" postCustomFieldName="contest_entry_votes" adminOnly="1">
+				<label><![CDATA[votes]]></label>
+				<defaultValue><![CDATA[0]]></defaultValue>
+			</field>
+		</fields>
+		<descriptionPlacement><![CDATA[below]]></descriptionPlacement>
+		<requireLogin><![CDATA[1]]></requireLogin>
+		<requireLoginMessage><![CDATA[You must be logged in to enter a contest.]]></requireLoginMessage>
+		<notification>
+			<to><![CDATA[{admin_email}]]></to>
+			<subject><![CDATA[New submission from {form_title}]]></subject>
+			<message><![CDATA[{all_fields}]]></message>
+		</notification>
+	</form>
+</forms>

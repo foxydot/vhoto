@@ -218,6 +218,45 @@ image.',THEME_ADMIN_LANG_DOMAIN),get_option('siteurl')),
 				array(
 						"type" => "end"
 				),
+		array(
+				"name" => __("Twitter OAUTH",THEME_ADMIN_LANG_DOMAIN),
+				"type" => "start"
+		),
+		array(
+				"name" => __("Consumer key",THEME_ADMIN_LANG_DOMAIN),
+				"desc" => '',
+				"id" => "tw_consumer_key",
+				"default" => "",
+				"size" => 20,
+				"type" => "text"
+		),
+		array(
+				"name" => __("Consumer Secret",THEME_ADMIN_LANG_DOMAIN),
+				"desc" => '',
+				"id" => "tw_consumer_secret",
+				"default" => "",
+				"size" => 20,
+				"type" => "text"
+		),
+		array(
+				"name" => __("Access Token",THEME_ADMIN_LANG_DOMAIN),
+				"desc" => '',
+				"id" => "tw_access_token",
+				"default" => "",
+				"size" => 20,
+				"type" => "text"
+		),
+		array(
+				"name" => __("Access Token Secret",THEME_ADMIN_LANG_DOMAIN),
+				"desc" => '',
+				"id" => "tw_access_secret",
+				"default" => "",
+				"size" => 20,
+				"type" => "text"
+		),
+				array(
+						"type" => "end"
+				),
 	
 );
 return array(

@@ -1,10 +1,11 @@
 === Advanced Menu Widget ===
 Contributors: JohnnyPea
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FUT8H7SGMYE5E
-Tags: menu,widget,widgets,navigation,nav,custom menus,custom menu
+Tags: menu,widget,widgets,navigation,nav,custom menus,custom menu,shortcode
 Requires at least: 3.0
-Tested up to: 3.3.1
-Stable tag: 0.2
+Tested up to: 3.5.1
+Stable tag: 0.3
+License: GPLv2 or later
 
 Enhanced Navigation Menu Widget.
 
@@ -18,8 +19,11 @@ Features include:
 * Starting depth and maximum level to display + flat display.
 * Display all menu items starting with the selected one.
 * Display only direct path to current element or only children of selected item (option to include the parent item).
+* Display menu as drop down.
 * Custom class for a widget block.
 * And almost all the parameters for the [wp_nav_menu](http://codex.wordpress.org/Function_Reference/wp_nav_menu) function.
+* shortcode `[advMenu]`
+* Display menu items descriptions.
 
 **Are you missing something or isn't it working as expected ? I am open to suggestions to improve the plugin !**
 
@@ -53,11 +57,45 @@ Yes. You can email me in this case.
 * "Select the filter" - filter the direct path for the current menu item (like breadcrumb navigation) or display only its children
 * "Include parents" - when checked it display also parent item upon filters (e.x. Display only children of selected item)
 
+== Shortcode ==
+
+You can use `[advMenu]` shortcode with the parameters listed below:
+
+`
+'nav_menu' (menu ID)				
+'title'				
+'dropdown' 				
+'only_related' 			
+'depth' 				
+'container' 			
+'container_id' 			
+'menu_class'			
+'before' 				
+'after' 				
+'link_before' 			
+'link_after' 			
+'filter' 					
+'filter_selection' 			
+'include_parent' 				
+'start_depth' 			
+'hide_title' 			
+'custom_widget_class'
+`
+
+e.g. `[advMenu title="Menu Title" nav_menu=2]`
+
 == Screenshots ==
 
 1. Widget options.
 
 == Changelog ==
+
+= 0.3 =
+* Added option to display menu as dropdown.
+* Added descriptions.
+* Added shortcode [advMenu]
+* Post related parents are now accepted.
+* Bug fixes and enhancements.
 
 = 0.2 =
 * Enhanced custom hierarchy (you are seeing really only related elements).
@@ -67,6 +105,17 @@ Yes. You can email me in this case.
 * Added direct path.
 * Added option to display only children elements of selected item.
 * Added custom class for a widget block.
+
+= 0.1 =
+* initial release
+
+== Upgrade Notice ==
+
+= 0.3 =
+New features, bug fixes and enhancements.
+
+= 0.2 =
+New features and enhancements.
 
 = 0.1 =
 initial release

@@ -535,8 +535,8 @@ class WonderWorks {
 			update_option('ultimatum_general',$ultimatum);
 			update_option('ultimatum_version', 2.37);
 		}
-		if($ultimatumversion<2.37033){
-			update_option('ultimatum_version', 2.37033);
+		if($ultimatumversion<2.37034){
+			update_option('ultimatum_version', 2.37034);
 		}	   		
 	}
 }

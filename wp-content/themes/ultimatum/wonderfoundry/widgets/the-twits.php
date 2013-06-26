@@ -32,14 +32,18 @@ class UltimatumTwitter extends WP_Widget {
 				echo $before_title . $title . $after_title;
 				
 		$id = rand(1,1000);
+		$interval = isset($instance['interval']) ? absint($instance['interval']) : 3;
+		$interval = $interval*60;
 		?>
 		
 		<script type="text/javascript">
 				jQuery(document).ready(function($) {
 					 jQuery("#twitter_wrap_<?php echo $id;?>").tweet({
+						modpath: "<?php echo THEME_URI.'/helpers/tweets.php';?>",
 						username: [<?php echo implode(',',$user_array);?>],
 						count: <?php echo $count;?>,
 						query: <?php echo $query;?>,
+						refresh_interval : <?php echo $interval;?>,
 						avatar_size: <?php echo $avatar_size;?>,
 						seconds_ago_text: "<?php _e('about %d seconds ago',THEME_LANG_DOMAIN);?>",
 						a_minutes_ago_text: "<?php _e('about a minute ago',THEME_LANG_DOMAIN);?>",
@@ -65,6 +69,7 @@ class UltimatumTwitter extends WP_Widget {
 		$instance['username'] = strip_tags($new_instance['username']);
 		$instance['avatar_size'] = $new_instance['avatar_size']?(int) $new_instance['avatar_size']:'';
 		$instance['count'] = (int) $new_instance['count'];
+		$instance['interval'] = (int) $new_instance['interval'];
 		$instance['query'] = strip_tags($new_instance['query']);
 		return $instance;
 	}
@@ -75,6 +80,7 @@ class UltimatumTwitter extends WP_Widget {
 		$avatar_size = isset($instance['avatar_size']) ? absint($instance['avatar_size']) : '';
 		$query = isset($instance['query']) ? esc_attr($instance['query']) : '';
 		$count = isset($instance['count']) ? absint($instance['count']) : 3;
+		$interval = isset($instance['interval']) ? absint($instance['interval']) : 3;
 		$display = isset( $instance['display'] ) ? $instance['display'] : 'latest';
 ?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', THEME_ADMIN_LANG_DOMAIN); ?></label>
@@ -93,6 +99,8 @@ class UltimatumTwitter extends WP_Widget {
 		
 		<p><label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('How many tweets to display?', THEME_ADMIN_LANG_DOMAIN); ?></label>
 		<input id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" type="text" value="<?php echo $count; ?>" size="3" /></p>
+		<p><label for="<?php echo $this->get_field_id('interval'); ?>"><?php _e('Refresh Time in Minutes :', THEME_ADMIN_LANG_DOMAIN); ?></label>
+		<input id="<?php echo $this->get_field_id('interval'); ?>" name="<?php echo $this->get_field_name('interval'); ?>" type="text" value="<?php echo $interval; ?>" size="3" /></p>
 		
 		<p><label for="<?php echo $this->get_field_id('query'); ?>"><?php _e('Query (optional):', THEME_ADMIN_LANG_DOMAIN); ?></label>
 		<textarea class="widefat" rows="4" cols="20" id="<?php echo $this->get_field_id('query'); ?>" name="<?php echo $this->get_field_name('query'); ?>"><?php echo $query; ?></textarea>

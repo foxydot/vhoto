@@ -363,6 +363,10 @@ function importTheme(){
     $raw_content = file_get_contents($file);
     $content = base64_decode($raw_content);
     $theme = unserialize($content);
+   /*echo '<pre>';
+    print_r($theme);
+    echo "</pre>";
+    die();*/
     // Do Images
     if(is_array($theme['images'])){
     $images = $theme['images'];
@@ -453,12 +457,13 @@ function importTheme(){
 			$layoutrows[]=$rowid;
 			// Insert row wrapper CSS
 			$wrapper = 'wrapper-'.$rowid;
-			foreach($row['wrapper'] as $element=>$property){
-				$properties = serialize($property);
-				if($element!='custom_css'){
+		foreach($row['wrapper'] as $element=>$property){
+				if($element!='custom_classes'){
+					$properties = serialize($property);
 					$wrappersql = "INSERT INTO $ctable VALUES ('','$wrapper','$layoutid','$element','$properties')";
 					$wpdb->query($wrappersql);
 				} else {
+					$properties = unserialize($property);
 					if(count($properties)!=0):
 					$classql = "REPLACE INTO $classtable (`container`,`user_class`,`hidephone`,`hidetablet`,`hidedesktop`,`layout_id`) VALUES ('$wrapper','".$properties["user_class"]."','".$properties["hidephone"]."','".$properties["hidetablet"]."','".$properties["hidedesktop"]."','".$properties["layout_id"]."')";
 					$wpdb->query($classql);
@@ -468,11 +473,12 @@ function importTheme(){
 			// Insert row container CSS
 			$container = 'container-'.$rowid;
 			foreach($row['container'] as $element=>$property){
-				$properties = serialize($property);
-				if($element!='custom_css'){
+				if($element!='custom_classes'){
+					$properties = serialize($property);
 					$containersql = "INSERT INTO $ctable VALUES ('','$container','$layoutid','$element','$properties')";
 					$wpdb->query($containersql);
 				} else {
+					$properties = unserialize($property);
 					if(count($properties)!=0):
 					$classql = "REPLACE INTO $classtable (`container`,`user_class`,`hidephone`,`hidetablet`,`hidedesktop`,`layout_id`) VALUES ('$container','".$properties["user_class"]."','".$properties["hidephone"]."','".$properties["hidetablet"]."','".$properties["hidedesktop"]."','".$properties["layout_id"]."')";
 					$wpdb->query($classql);
@@ -483,13 +489,14 @@ function importTheme(){
 			foreach ($row['col'] as $colid=>$colcss){
 				$column = 'col-'.$layoutid.'-'.$colid;
 				foreach ($colcss as $element=>$property){
-					$properties = serialize($property);
-					if($element!='custom_css'){
+					if($element!='custom_classes'){
+						$properties = serialize($property);
 						$colsql = "INSERT INTO $ctable VALUES ('','$column','$layoutid','$element','$properties')";
 						$wpdb->query($colsql);
 					} else {
+						$properties = unserialize($property);
 						if(count($properties)!=0):
-						$classql = "REPLACE INTO $classtable (`container`,`user_class`,`hidephone`,`hidetablet`,`hidedesktop`,`layout_id`) VALUES ('$column','".$properties["user_class"]."','".$properties["hidephone"]."','".$properties["hidetablet"]."','".$properties["hidedesktop"]."','".$properties["layout_id"]."')";
+						$classql = "REPLACE INTO $classtable (`container`,`user_class`,`hidephone`,`hidetablet`,`hidedesktop`,`layout_id`) VALUES ('$column','".$properties["user_class"]."','".$properties["hidephone"]."','".$properties["hidetablet"]."','".$property["hidedesktop"]."','".$properties["layout_id"]."')";
 						$wpdb->query($classql);
 						endif;
 					}
