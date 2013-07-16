@@ -66,9 +66,7 @@ if (!class_exists('MSDContestManager')) {
 		  */
 		 function msd_contest_management()
 		 {
-		 	global $location,$wpdb,$network_table_prefix;
-		 	$locations = get_posts(array('post_type' => 'fpi_location', 'numberposts' => 1,'orderby'=> 'ID','order'=> 'ASC',));
-		 	$primary_location = $locations[0];
+		 	global $wpdb,$network_table_prefix;
 		 	$all_contests = get_terms('contest',array('hide_empty'=>FALSE));
 		 	foreach($all_contests AS $k => $v){
 		 		$meta = get_option('contest_'.$v->term_id.'_meta');

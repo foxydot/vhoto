@@ -23,17 +23,19 @@ if (!class_exists('MSDContestDisplay')) {
 		}  
 		function display_grid($images,$cols=4){
 			foreach($images AS $image){
-				$thumb = get_the_post_thumbnail($image->ID);
+				$thumb = get_the_post_thumbnail($image->ID, 'thumbnail');
 				$url_array = wp_get_attachment_image_src( get_post_thumbnail_id($image->ID), 'large' );
 				$url = $url_array['0'];
 				$excerpt = $image->post_excerpt?$image->post_excerpt:msd_trim_headline($image->post_content);
+				$social_sharing_toolkit = new MR_Social_Sharing_Toolkit();
+				$share = $social_sharing_toolkit->create_bookmarks(get_permalink($image->ID), $image->post_title.' on '.get_option('blogname'));
 				$grid .= '
 <div id="contest-entry-'.$image->ID.'" class="entry-item post post-'.$image->ID.'">
 	<div class="post-inner">
 		<div class="aligner">
 			<div class="featured-image">
 				<a class="preload image_zoom" rel="prettyPhoto[]" href="'.$url.'">
-					'.$thumb.'<span class="image_overlay" style="opacity: 0; visibility: visible;"></span>
+					'.$thumb.'
 				</a>
 			</div>
 		<div class="post-meta"><span class="date"><a href="'.get_post_permalink($image->ID).'">'.$image->post_date.'</a></span> | <span class="comments"><a title="Comment on '.$image->post_title.'" href="http://photocontest.msdlab2.com/V-Pictures/yacht2/#respond">No Comments</a></span></div>
@@ -41,6 +43,7 @@ if (!class_exists('MSDContestDisplay')) {
 		<div class="post-excerpt">'.$excerpt.'</div>
 		<div class="votes">Votes: <span class="total_votes">'.$image->votes.'</span></div>
 		'.$this->msd_get_vote_button($image).'
+		<div class="sharing">'.$share.'</div>
 	</div>
 </div>';
 			}
@@ -51,26 +54,22 @@ if (!class_exists('MSDContestDisplay')) {
 		
 		function get_photos_by($key = 'all',$value = NULL){			
 			$args = array( 'post_type' => 'contest_entry', 'numberposts' => -1 );
-
-			$args['order_by'] = 'meta_value';
-			$args['order'] = 'ASC';
-			$args['meta_key'] = 'contest_entry_votes';
-			switch($key){
-				case 'contest':
-				$args['tax_query'][0]['taxonomy'] = 'contest';
-				$args['tax_query'][0]['field'] = 'slug';
-				$args['tax_query'][0]['terms'] = $value;
-					break;
-				case 'category':
-				$args['tax_query'][0]['taxonomy'] = 'category';
-				$args['tax_query'][0]['field'] = 'slug';
-				$args['tax_query'][0]['terms'] = $value;
-					break;
-				case 'vote':
-					break;
-				case 'all':
-				default:
-					break;
+			if(!empty($value)){
+				$args['order_by'] = 'meta_value';
+				$args['order'] = 'ASC';
+				$args['meta_key'] = 'contest_entry_votes';
+				switch($key){
+					case 'contest':
+					$args['tax_query'][0]['taxonomy'] = 'contest';
+					$args['tax_query'][0]['field'] = 'slug';
+					$args['tax_query'][0]['terms'] = $value;
+						break;
+					case 'category':
+					$args['tax_query'][0]['taxonomy'] = 'category';
+					$args['tax_query'][0]['field'] = 'slug';
+					$args['tax_query'][0]['terms'] = $value;
+						break;
+				}
 			}
 			
 			$images = get_posts($args);
@@ -82,18 +81,58 @@ if (!class_exists('MSDContestDisplay')) {
 			return $images;
 		}
 		
-		function print_photos_by($attr){
+		function print_photos_by($atts){
 			extract( shortcode_atts( array(
 			'display' => 'grid',
 			'key' => 'all',
 			'value' => NULL,
 			'cols' => 4
 			), $atts ) );
-			$images = $this->get_photos_by($key,$value);
-			switch($display){
-				case 'grid':
-					print $this->display_grid($images,$cols);
-					break;
+			if(!empty($value)){
+				$images = $this->get_photos_by($key,$value);
+				switch($display){
+					case 'grid':
+						print $this->display_grid($images,$cols);
+						break;
+				}
+			} else {
+				switch($key){
+					case 'contest':
+					case 'category':
+						$cargs = array(
+								'child_of'      => 0,
+								'orderby'       => 'name',
+								'order'         => 'ASC',
+								'hide_empty'    => 0,
+								'taxonomy'      => $key, //change this to any taxonomy
+						);
+						$taxterms = (array) get_terms($key,$cargs);
+						foreach ( $taxterms AS $tax) :
+							if($key=='contest'){
+								$meta = get_option('contest_'.$tax->term_id.'_meta');
+								$start_date = $meta['contest_start_date'];
+								$end_date = $meta['contest_end_date'];
+								$start = strtotime($meta['contest_start_date']);
+								$end = strtotime($meta['contest_end_date']);
+								$today = time();
+								if($today > $start && $today < $end){
+									$dates = '<h4 class="'.$key.'-date date">'.$start_date.'-'.$end_date.'</h4>';
+								} else {
+									continue;
+								}
+							}
+							$images = $this->get_photos_by($key,$tax->slug);
+							print '<h2 class="'.$key.'-title title">'.$tax->name.'</h2>';
+							print $dates;
+							print $this->display_grid($images,$cols);
+						endforeach;
+						break;
+					case 'votes':
+					default:
+						$images = $this->get_photos_by($key,$value);
+						print $this->display_grid($images,$cols);
+						break;
+				}
 			}
 		}
 		
@@ -101,6 +140,7 @@ if (!class_exists('MSDContestDisplay')) {
 			global $current_user;
 	        if(is_user_logged_in()){
 				if($current_user->ID != $image->post_author){
+					//TODO: check to see if user can vote in this contest
 					$vote_button = '<a href="javascript:void(0)" id="'.$image->ID.'" class="vote-button contest-button">ADD A VOTE</a>';
 				} else {
 					$vote_button = 'Sorry, you cannot vote on your own entries.';

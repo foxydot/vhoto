@@ -76,7 +76,7 @@ foreach($images as $image){
 if($uslider){
 $image["image"] = THEME_SLIDESHOW.'/'.$instance["slide"].'/'.$image["image"];
 }
-$superslides[]="{image : '".$image['image']."', title : '<h3><a href=\"".$image['link']."\">".$image['title']."</a></h2>', url : '".$image['link']."'}";
+$superslides[]="{image : '".$image['image']."', title : '<h3><a href=\"".$image['link']."\">".$image['title']."</a></h3>', url : '".$image['link']."'}";
 }
 $superslider = implode(',',$superslides);
 echo $superslider;

@@ -13,6 +13,8 @@ if($post_id = $_POST['vote_id']){
 	$meta_key = 'contest_entry_votes';
 	$prev_value = get_post_meta($post_id, $meta_key, true);
 	$meta_value = $prev_value+1;
+	//TODO: get contest
+	//TODO: set usermeta for contest with date
 	if(update_post_meta($post_id, $meta_key, $meta_value, $prev_value)){
 		print $meta_value;
 	}

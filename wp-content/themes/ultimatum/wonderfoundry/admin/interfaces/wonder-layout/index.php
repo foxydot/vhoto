@@ -66,6 +66,7 @@ function ultimatum_list_layouts(){
 	$atable = $wpdb->prefix.'ultimatum_layout_assign';
 	$rtable = $wpdb->prefix.'ultimatum_rows';
 	$ctable = $wpdb->prefix.'ultimatum_css';
+	$classtable = $wpdb->prefix.'ultimatum_classes';
 	if($_GET['delassigner']){
 		$sql1 = "DELETE FROM $atable WHERE `post_type`='".$_GET['delassigner']."' AND `template`='".THEME_CODE."'";
 		$wpdb->query($sql1);
@@ -201,10 +202,10 @@ function ultimatum_list_layouts(){
 			break;
 			case 'clone':
 				$messedids=array();
-		if(function_exists(ult_ms_getter)){
-		$prel = ult_ms_getter();
-	}
-					$ultimatum_sidebars_widgets = get_option('ultimatum_sidebars_widgets');
+				if(function_exists(ult_ms_getter)){
+					$prel = ult_ms_getter();
+				}
+				$ultimatum_sidebars_widgets = get_option('ultimatum_sidebars_widgets');
 				$tobecloned = $_POST["source"];
 				$select = "SELECT * FROM $table WHERE `id`='$tobecloned'";
 				$sourcelayout = $wpdb->get_row($select,ARRAY_A);
@@ -214,7 +215,9 @@ function ultimatum_list_layouts(){
 				$cloneql = $wpdb->query($cloneql);
 				$cloneid = $wpdb->insert_id;
 				$option = get_option(THEME_SLUG.'_'.$tobecloned.'_css');
-				$newopt = update_option(THEME_SLUG.'_'.$cloneid.'_css', $option);
+				if($option) {
+						$newopt = update_option(THEME_SLUG.'_'.$cloneid.'_css', $option);
+				}
 				$file1 = THEME_CACHE_DIR.'/skin_'.$prel.$tobecloned.'.css';
 				$file1new = THEME_CACHE_DIR.'/skin_'.$prel.$cloneid.'.css';
 				$file2 = THEME_CACHE_DIR.'/cufon_'.$prel.$tobecloned.'.php';
@@ -255,19 +258,34 @@ function ultimatum_list_layouts(){
 					$oldw= 'wrapper-'.$row;
 					$qw = "SELECT * FROM $ctable WHERE `container`='$oldw' AND `layout_id`='$tobecloned'";
 					$qwf = $wpdb->get_row($qw,ARRAY_A);
+					$qwsn = "SELECT * FROM $classtable WHERE `container`='$oldw' AND `layout_id`='$tobecloned'";
+					$qwsnf = $wpdb->get_row($qwsn,ARRAY_A);
 					if($qwf){
 					$neww = 'wrapper-'.$newrowid;
 					$newwi = "INSERT INTO $ctable (`container`,`layout_id`,`element`,`properties`) VALUES ('$neww','$cloneid','$qwf[element]','$qwf[properties]')";
 					$newwi = $wpdb->query($newwi);
 					}
+					if($qwsnf){
+						$neww = 'wrapper-'.$newrowid;
+						$newwi = "INSERT INTO $classtable (`container`,`layout_id`,`user_class`,`hidephone`,`hidetablet`,`hidedesktop`) VALUES ('$neww','$cloneid','$qwsnf[user_class]','$qwsnf[hidephone]','$qwsnf[hidetablet]','$qwsnf[hidedesktop]')";
+						$newwi = $wpdb->query($newwi);
+					}
+					
 					// 2- Container
 					$oldw= 'container-'.$row;
 					$qw = "SELECT * FROM $ctable WHERE `container`='$oldw' AND `layout_id`='$tobecloned'";
 					$qwf = $wpdb->get_row($qw,ARRAY_A);
+					$qwsn = "SELECT * FROM $classtable WHERE `container`='$oldw' AND `layout_id`='$tobecloned'";
+					$qwsnf = $wpdb->get_row($qwsn,ARRAY_A);
 					if($qwf){
 					$neww = 'container-'.$newrowid;
 					$newwi = "INSERT INTO $ctable (`container`,`layout_id`,`element`,`properties`) VALUES ('$neww','$cloneid','$qwf[element]','$qwf[properties]')";
 					$newwi = $wpdb->query($newwi);
+					}
+					if($qwsnf){
+						$neww = 'container-'.$newrowid;
+						$newwi = "INSERT INTO $classtable (`container`,`layout_id`,`user_class`,`hidephone`,`hidetablet`,`hidedesktop`) VALUES ('$neww','$cloneid','$qwsnf[user_class]','$qwsnf[hidephone]','$qwsnf[hidetablet]','$qwsnf[hidedesktop]')";
+						$newwi = $wpdb->query($newwi);
 					}
 					// 3- Columns
 					
@@ -307,8 +325,14 @@ function ultimatum_list_layouts(){
 							}
 						$qw = "SELECT * FROM $ctable WHERE `container`='$oldw' AND `layout_id`='$tobecloned'";
 						$qwf = $wpdb->get_row($qw,ARRAY_A);
+						$qwsn = "SELECT * FROM $classtable WHERE `container`='$oldw' AND `layout_id`='$tobecloned'";
+						$qwsnf = $wpdb->get_row($qwsn,ARRAY_A);
 						if($qwf){
 							$newwi = "INSERT INTO $ctable (`container`,`layout_id`,`element`,`properties`) VALUES ('$neww','$cloneid','$qwf[element]','$qwf[properties]')";
+							$newwi = $wpdb->query($newwi);
+						}
+						if($qwsnf){
+							$newwi = "INSERT INTO $classtable (`container`,`layout_id`,`user_class`,`hidephone`,`hidetablet`,`hidedesktop`) VALUES ('$neww','$cloneid','$qwsnf[user_class]','$qwsnf[hidephone]','$qwsnf[hidetablet]','$qwsnf[hidedesktop]')";
 							$newwi = $wpdb->query($newwi);
 						}
 						
@@ -662,6 +686,7 @@ else
 		echo '<a href="./admin.php?page=wonder-layout&task=edit&layoutid='.$layout["id"].'">'.$layout["title"].'</a></td>';
 		echo '<td>';
 		echo '<a class="button-primary autowidth" href="./admin.php?page=wonder-layout&task=edit&theme='.$_REQUEST['theme'].'&layoutid='.$layout["id"].'">'.__('Edit',THEME_ADMIN_LANG_DOMAIN).'</a>';
+		echo '<form method="post" action=""><input type="hidden" name="action" value="clone"/><input type="hidden" name="source" value="'.$layout["id"].'" /><input type="submit" value="'.__('Clone Layout',THEME_ADMIN_LANG_DOMAIN).'" /></form>';
 		echo '<form method="post" action=""><input type="hidden" name="action" value="delete"/><input type="hidden" name="source" value="'.$layout["id"].'" /><input type="submit" value="'.__('Delete Layout',THEME_ADMIN_LANG_DOMAIN).'" onClick="return confirmSubmit()" /></form>';
 		echo'</td>';
 		echo '</tr>';

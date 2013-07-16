@@ -117,7 +117,7 @@ function shortcode_gallery( $output, $attr ) {
 		$image  =  '<img src="' . $img_src . '" alt="' . $img_alt . '" class="' . $img_class . ' attachment-' . $size . '" />';
 		
 		
-			$image = '<a href="' . $img_lnk . '" class="prettyPhoto image_icon_zoom gallery-image-wrap" title="' . $lightbox_title . '" rel="' . $img_rel . '">'.$image.'</a>';
+			$image = '<a href="' . $img_lnk . '" class="prettyPhoto image_icon_zoom gallery-image-wrap" rel="prettyPhoto" title="' . $lightbox_title . '" rel="' . $img_rel . '">'.$image.'</a>';
 		
 		$output .= $image;
 		

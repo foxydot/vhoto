@@ -112,7 +112,7 @@ div.wrapper{width:100%;margin-left:0px;margin-right:0px;float:left;}
 	.container_12 .grid_9,
 	.container_12 .grid_10,
 	.container_12 .grid_11,
-	.container_12 .grid_12 {width:300px;}
+	.container_12 .grid_12 {width:300px;margin:0;}
 	.alpha, .omega { margin-left: 0; margin-right: 0;}
 	.align_center,.align_right { text-align: left;}
 	.regular-nav {display:none}
@@ -134,7 +134,7 @@ div.wrapper{width:100%;margin-left:0px;margin-right:0px;float:left;}
 	.container_12 .grid_9,
 	.container_12 .grid_10,
 	.container_12 .grid_11,
-	.container_12 .grid_12 {width:420px;}
+	.container_12 .grid_12 {width:420px;margin:0}
 	.alpha, .omega { margin-left: 0; margin-right: 0;}
 	.align_center,.align_right { text-align: left;}
 	img {max-width: 100%;height: auto;}

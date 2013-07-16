@@ -14,6 +14,8 @@ if (!class_exists('MSDContestUser')) {
         function __construct(){
             //Actions        
             add_filter( 'show_admin_bar', array(&$this,'fb_show_admin_bar') );
+            add_filter('gform_field_value_user_role', array(&$this,'gform_populate_user_role'));
+            
             add_action('register_form',array(&$this,'show_extra_fields'));
             add_action('user_register', array(&$this,'register_role'));
         }
@@ -39,6 +41,12 @@ if (!class_exists('MSDContestUser')) {
         	$role->remove_cap( 'place_vote' );
         }
         
+        function gform_populate_user_role($value){
+        	$user = wp_get_current_user();
+        	$role = $user->roles;
+        	if(is_empty($role)){$role = 'anonymous';}
+        	return reset($role);
+        }
         /*
          * TODO
          */

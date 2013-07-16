@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms version="1.7.6">
+	<form labelPlacement="top_label" useCurrentUserAsAuthor="1">
+		<title><![CDATA[Register for Contest]]></title>
+		<descriptionPlacement><![CDATA[below]]></descriptionPlacement>
+		<button type="text">
+			<text><![CDATA[Submit]]></text>
+		</button>
+		<fields>
+			<field adminOnly="1" allowsPrepopulate="1" id="6" size="medium" type="text">
+				<inputName><![CDATA[user_role]]></inputName>
+				<label><![CDATA[user role]]></label>
+			</field>
+			<field id="5" size="medium" type="password" displayOnly="1">
+				<label><![CDATA[Password]]></label>
+				<conditionalLogic actionType="show" logicType="any">
+					<rules>
+						<rule fieldId="6" operator="is">
+							<value><![CDATA[Enter a value]]></value>
+						</rule>
+					</rules>
+				</conditionalLogic>
+			</field>
+			<field id="1" size="medium" type="name">
+				<label><![CDATA[Name]]></label>
+				<inputs>
+					<input id="1.3">
+						<label><![CDATA[First]]></label>
+					</input>
+					<input id="1.6">
+						<label><![CDATA[Last]]></label>
+					</input>
+				</inputs>
+				<conditionalLogic actionType="show" logicType="all">
+					<rules>
+						<rule fieldId="6" operator="is">
+							<value><![CDATA[anonymous]]></value>
+						</rule>
+					</rules>
+				</conditionalLogic>
+			</field>
+			<field id="4" isRequired="1" noDuplicates="1" size="medium" type="email">
+				<label><![CDATA[Email]]></label>
+				<conditionalLogic actionType="show" logicType="all">
+					<rules>
+						<rule fieldId="6" operator="is">
+							<value><![CDATA[anonymous]]></value>
+						</rule>
+					</rules>
+				</conditionalLogic>
+			</field>
+			<field id="2" size="medium" type="address" addressType="us" hideAddress2="1">
+				<label><![CDATA[Address]]></label>
+				<defaultCountry><![CDATA[United States]]></defaultCountry>
+				<inputs>
+					<input id="2.1">
+						<label><![CDATA[Street Address]]></label>
+					</input>
+					<input id="2.2">
+						<label><![CDATA[Address Line 2]]></label>
+					</input>
+					<input id="2.3">
+						<label><![CDATA[City]]></label>
+					</input>
+					<input id="2.4">
+						<label><![CDATA[State / Province]]></label>
+					</input>
+					<input id="2.5">
+						<label><![CDATA[ZIP / Postal Code]]></label>
+					</input>
+					<input id="2.6">
+						<label><![CDATA[Country]]></label>
+					</input>
+				</inputs>
+			</field>
+			<field id="3" isRequired="1" size="medium" type="date" calendarIconType="none" dateType="datepicker">
+				<label><![CDATA[Birthdate]]></label>
+			</field>
+		</fields>
+		<notifications>
+			<notification id="51cb8fcdef0e2">
+				<to><![CDATA[{admin_email}]]></to>
+				<name><![CDATA[Admin Notification]]></name>
+				<event><![CDATA[form_submission]]></event>
+				<toType><![CDATA[email]]></toType>
+				<subject><![CDATA[New submission from {form_title}]]></subject>
+				<message><![CDATA[{all_fields}]]></message>
+			</notification>
+		</notifications>
+		<confirmations>
+			<confirmation id="51cb8fcdef2ac" isDefault="1" type="message">
+				<name><![CDATA[Default Confirmation]]></name>
+				<message><![CDATA[You have been registered.]]></message>
+			</confirmation>
+		</confirmations>
+	</form>
+</forms>

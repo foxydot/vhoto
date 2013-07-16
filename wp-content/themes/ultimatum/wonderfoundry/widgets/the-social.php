@@ -42,7 +42,7 @@ class UltimatumSocial extends WP_Widget {
 				$path = str_replace('{:name}',strtolower($site),$this->packages[$package]['path']);
 				$link = isset($instance[$site])?$instance[$site]:'#';
 				if(file_exists(THEME_DIR . '/images/social_icons/'.$path)){
-					$output .= '<a href="'.$link.'" rel="external"><img src="'.THEME_IMAGES.'/social_icons/'.$path.'" alt="'.$site.'" title="'.$site.'"/></a>';
+					$output .= '<a href="'.$link.'" target="_blank"><img src="'.THEME_IMAGES.'/social_icons/'.$path.'" alt="'.$site.'" title="'.$site.'"/></a>';
 				}
 			}
 		}
