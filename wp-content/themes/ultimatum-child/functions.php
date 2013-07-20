@@ -1,6 +1,6 @@
 <?php
 $theme = array(
-  'theme_name' => 'White Label Child Theme',
+  'theme_name' => 'Ultimatum Child Theme',
   'theme_slug' =>'white-label-child',
 );
 require_once( get_template_directory() . '/wonderfoundry/wonderworks.php' );

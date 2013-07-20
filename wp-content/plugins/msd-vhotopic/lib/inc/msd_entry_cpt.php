@@ -30,6 +30,7 @@ if (!class_exists('MSDContestEntryCPT')) {
 				add_action('admin_print_footer_scripts',array(&$this,'print_footer_scripts'),99);
 			}
 			//Filters
+			add_filter( 'pre_get_posts', array(&$this,'archive_query') );
 			add_filter( 'enter_title_here', array(&$this,'change_default_title') );
 		}
 		
@@ -167,6 +168,17 @@ if (!class_exists('MSDContestEntryCPT')) {
 				jQuery('#titlediv').after(jQuery('#_portfolio_metabox'));
 				jQuery('#postdivrich').hide();
 			</script><?php
+		}
+		
+
+		function archive_query( $query ) {
+			$is_contest = ($query->query_vars['contest'])?TRUE:FALSE;
+			if( $query->is_main_query() && $query->is_archive && $is_contest ) {
+				$query->set( 'orderby', 'date');
+				$query->set( 'order', 'ASC');
+				$query->set( 'posts_per_page', 100 );
+				$query->set( 'post_type', $this->cpt );
+			}
 		}
   } //End Class
 } //End if class exists statement

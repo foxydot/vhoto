@@ -67,6 +67,15 @@ The new PHP function accepts 4 arguments, each described below in greater detail
 
 Changelog
 =========
+2.0.5.1
+--------
+* Added Portuguese translation as provided by Debora Bossois (@deborazb).
+
+2.0.5
+-----
+* Fixed overly sanitized passwords when logging in (it was stripping out special characters).
+* Added Spanish translation from David Portillo (wethinkapp.com).
+
 2.0.4
 -----
 * Fixed a display issue in the admin page. All settings showing as '01'.

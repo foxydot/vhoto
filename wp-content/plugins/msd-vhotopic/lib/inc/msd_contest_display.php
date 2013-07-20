@@ -20,8 +20,10 @@ if (!class_exists('MSDContestDisplay')) {
 			//Shortcode
 			add_shortcode('print_photos', array(&$this,'print_photos_by'));
 			add_shortcode('print-photos', array(&$this,'print_photos_by'));
+			add_shortcode('list_contests', array(&$this,'list_contests_by'));
+			add_shortcode('list-contests', array(&$this,'list_contests_by'));
 		}  
-		function display_grid($images,$cols=4){
+		function display_grid($images,$cols = 4){
 			foreach($images AS $image){
 				$thumb = get_the_post_thumbnail($image->ID, 'thumbnail');
 				$url_array = wp_get_attachment_image_src( get_post_thumbnail_id($image->ID), 'large' );
@@ -29,6 +31,7 @@ if (!class_exists('MSDContestDisplay')) {
 				$excerpt = $image->post_excerpt?$image->post_excerpt:msd_trim_headline($image->post_content);
 				$social_sharing_toolkit = new MR_Social_Sharing_Toolkit();
 				$share = $social_sharing_toolkit->create_bookmarks(get_permalink($image->ID), $image->post_title.' on '.get_option('blogname'));
+				$votes = !empty($image->votes)?$image->votes:get_post_meta($image->ID,'contest_entry_votes',TRUE);
 				$grid .= '
 <div id="contest-entry-'.$image->ID.'" class="entry-item post post-'.$image->ID.'">
 	<div class="post-inner">
@@ -41,7 +44,7 @@ if (!class_exists('MSDContestDisplay')) {
 		<div class="post-meta"><span class="date"><a href="'.get_post_permalink($image->ID).'">'.$image->post_date.'</a></span> | <span class="comments"><a title="Comment on '.$image->post_title.'" href="http://photocontest.msdlab2.com/V-Pictures/yacht2/#respond">No Comments</a></span></div>
 		</div>
 		<div class="post-excerpt">'.$excerpt.'</div>
-		<div class="votes">Votes: <span class="total_votes">'.$image->votes.'</span></div>
+		<div class="votes">Votes: <span class="total_votes">'.$votes.'</span></div>
 		'.$this->msd_get_vote_button($image).'
 		<div class="sharing">'.$share.'</div>
 	</div>
@@ -135,6 +138,37 @@ if (!class_exists('MSDContestDisplay')) {
 				}
 			}
 		}
+		
+		function list_contests_by($atts){
+			extract( shortcode_atts( array(
+			'key' => 'date',
+			'order' => 'ASC'
+			), $atts ) );
+			$cargs = array(
+					'child_of'      => 0,
+					'orderby'       => $key,
+					'order'         => $order,
+					'hide_empty'    => 0,
+					'taxonomy'      => 'contest', //change this to any taxonomy
+			);
+			$taxterms = (array) get_terms('contest',$cargs);
+			foreach ( $taxterms AS $tax) :
+				$meta = get_option('contest_'.$tax->term_id.'_meta');
+				$start_date = $meta['contest_start_date'];
+				$end_date = $meta['contest_end_date'];
+				$start = strtotime($meta['contest_start_date']);
+				$end = strtotime($meta['contest_end_date']);
+				$today = time();
+				if($today > $start && $today < $end){
+					$dates = '<h4 class="'.$key.'-date date">'.$start_date.'-'.$end_date.'</h4>';
+				} else {
+					continue;
+				}
+			$list .= '<li><a href="/contests/'.$tax->slug.'"><h2 class="title">'.$tax->name.'</h2>'.$dates.'</a></li>';
+			endforeach;
+			print '<ul class="contest-list">'.$list.'</ul>';
+		}
+		
 		
 		function msd_get_vote_button($image){
 			global $current_user;
