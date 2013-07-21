@@ -109,7 +109,7 @@ function prepare_items() {
   $this->_column_headers = array( $columns, $hidden, $sortable );
   usort( $this->example_data, array( &$this, 'usort_reorder' ) );
   
-  $per_page = 5;
+  $per_page = 30;
   $current_page = $this->get_pagenum();
   $total_items = count( $this->example_data );
 

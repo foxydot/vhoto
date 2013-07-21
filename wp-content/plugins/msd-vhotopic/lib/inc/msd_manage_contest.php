@@ -72,6 +72,7 @@ if (!class_exists('MSDContestManager')) {
 		 		$meta = get_option('contest_'.$v->term_id.'_meta');
 		 		$all_contests[$k]->start_date = $meta['contest_start_date']; 
 		 		$all_contests[$k]->end_date = $meta['contest_end_date'];
+		 		$all_contests[$k]->winner = $this->get_contest_winner($v->term_id);
 		 		$start = strtotime($meta['contest_start_date']);
 		 		$end = strtotime($meta['contest_end_date']);
 		 		$today = time();
@@ -220,7 +221,7 @@ if (!class_exists('MSDContestManager')) {
 				$stripe = $i%2==1?'odd':'even';
 				$table .= '<div class="table-row info_panel info_panel_'.$v->term_id.' '.$stripe.'" onclick="edit_contest('.$v->term_id.')">';
 				$table .= '<div class="table-column column-term_id">'.$v->term_id.'</div>
-		 			<div class="table-column column-name">'.$v->name.'</div>
+		 			<div class="table-column column-name"><a href="'.site_url('contests/'.$v->slug).'">'.$v->name.'</a></div>
 		 			<div class="table-column column-start_date">'.$v->start_date.'</div>
 		 			<div class="table-column column-end_date">'.$v->end_date.'</div>
 		 			<div class="table-column column-winner">'.$v->winner.'</div>';
@@ -258,7 +259,20 @@ if (!class_exists('MSDContestManager')) {
 			}
 			return $table;
 		}
- 		
+		
+		function get_contest_winner($contest_id){
+			$args = array( 'post_type' => 'contest_entry', 'numberposts' => 1 );
+			$args['order_by'] = 'meta_value';
+			$args['order'] = 'DESC';
+			$args['meta_key'] = 'contest_entry_votes';
+			$args['tax_query'][0]['taxonomy'] = 'contest';
+			$args['tax_query'][0]['field'] = 'id';
+			$args['tax_query'][0]['terms'] = $contest_id;
+	
+			$winner = array_shift(get_posts($args));
+			$ret = '<a href="'.get_post_permalink($winner->ID).'">'.$winner->post_title.'</a> Votes:'.get_post_meta($winner->ID,'contest_entry_votes',TRUE);
+			return $ret;
+		}
 	} //End Class	 
 } //End if class exists statement
 new MSDContestManager();
