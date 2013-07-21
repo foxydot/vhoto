@@ -197,9 +197,14 @@ if (!class_exists('MSDContestDisplay')) {
         
         //figure out if a user can vote in a given contest
         function msd_user_can_vote($user_id,$post_id,$return = 'boolean'){
-        	$contests = get_the_terms($post_id,'contest');
-        	$contest = $contests[0]->term_id;
+        	$contest = array_shift(get_the_terms($post_id,'contest'));
+        	$contest = $contest->term_id;
         	$votedate = get_user_meta($user_id,'voted_contest_'.$contest,TRUE);
+
+        	$daysthismonth = cal_days_in_month(CAL_GREGORIAN, date('m'), date("Y"));
+        	$onemonthago = mktime() - $daysthismonth*3600*24;
+        	$onemonthfromvote = mktime(date("h",$votedate),date("i",$votedate),date("s",$votedate),date("m",$votedate),date("d",$votedate),date("Y",$votedate)) + $daysthismonth*3600*24;
+        	
         	if(!$votedate){
         		switch($return){
         			case 'date':
@@ -211,9 +216,6 @@ if (!class_exists('MSDContestDisplay')) {
         				break;
         		}
         	} else {
-        		$daysthismonth = cal_days_in_month(CAL_GREGORIAN, date('m'), date("Y"));
-        		$onemonthago = mktime() - $daysthismonth*3600*24;
-        		$onemonthfromvote = mktime(date("h",$votedate),date("i",$votedate),date("s",$votedate),date("m",$votedate),date("d",$votedate),date("Y",$votedate)) + $daysthismonth*3600*24;
         		if($votedate > $onemonthago){
         			switch($return){
         				case 'date':

@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
 				var data_array = data.split('|');
 				if(data_array[0]>0){
 					  entry.find('.total_votes').html(data_array[0]);
-					  entry.find('.vote-button').html('VOTE ADDED!');
+					  entry.find('.vote-button').html('VOTE ADDED!').removeClass('vote-button').css('cursor','default');
 				} 
 			});
 		//reload the page for now.
