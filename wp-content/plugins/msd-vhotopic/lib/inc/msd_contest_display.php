@@ -174,8 +174,11 @@ if (!class_exists('MSDContestDisplay')) {
 			global $current_user;
 	        if(is_user_logged_in()){
 				if($current_user->ID != $image->post_author){
-					//TODO: check to see if user can vote in this contest
-					$vote_button = '<a href="javascript:void(0)" id="'.$image->ID.'" class="vote-button contest-button">ADD A VOTE</a>';
+					if($this->msd_user_can_vote($current_user->ID,$image->ID)){
+						$vote_button = '<a href="javascript:void(0)" id="'.$image->ID.'" class="vote-button contest-button">ADD A VOTE</a>';
+					} else {
+						$vote_button = 'You have already voted in this contest. You can vote again on '.$this->msd_user_can_vote($current_user->ID,$image->ID,'date');
+					}
 				} else {
 					$vote_button = 'Sorry, you cannot vote on your own entries.';
 				}
@@ -190,6 +193,49 @@ if (!class_exists('MSDContestDisplay')) {
 				}
 			}
 			return $vote_button;
+        }
+        
+        //figure out if a user can vote in a given contest
+        function msd_user_can_vote($user_id,$post_id,$return = 'boolean'){
+        	$contests = get_the_terms($post_id,'contest');
+        	$contest = $contests[0]->term_id;
+        	$votedate = get_user_meta($user_id,'voted_contest_'.$contest,TRUE);
+        	if(!$votedate){
+        		switch($return){
+        			case 'date':
+        				return date("m/d/Y");
+        				break;
+        			case 'boolean':
+        			default:
+        				return TRUE;
+        				break;
+        		}
+        	} else {
+        		$daysthismonth = cal_days_in_month(CAL_GREGORIAN, date('m'), date("Y"));
+        		$onemonthago = mktime() - $daysthismonth*3600*24;
+        		$onemonthfromvote = mktime(date("h",$votedate),date("i",$votedate),date("s",$votedate),date("m",$votedate),date("d",$votedate),date("Y",$votedate)) + $daysthismonth*3600*24;
+        		if($votedate > $onemonthago){
+        			switch($return){
+        				case 'date':
+        					return date("m/d/Y",$onemonthfromvote);
+        					break;
+        				case 'boolean':
+        				default:
+        					return FALSE;
+        					break;
+        			}
+        		} else {
+        			switch($return){
+        				case 'date':
+        					return date("m/d/Y",$onemonthfromvote);
+        					break;
+        				case 'boolean':
+        				default:
+        					return FALSE;
+        					break;
+        			}
+        		}
+        	}
         }
         
         //Logo for login page

@@ -1,0 +1,802 @@
+body {
+background-image: url(http://photocontest.local/wp-content/uploads/white-label-child/VHOTO,LLC/debut_light_@2X.png);
+background-position: top left;
+background-repeat: repeat;
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+#logo-container {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+a#logo {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 36px;
+line-height: 42px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+span#tagline {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 40px;
+line-height: 30px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+h1, h1 a, h1 a:hover, h1 a:visited {
+font-family: "Yanone Kaffeesatz", Arial, sans-serif;
+font-size: 36px;
+line-height: 42px;
+color: #000000;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+}
+
+h2, h2 a, h2 a:hover, h2 a:visited {
+font-family: "Yanone Kaffeesatz", Arial, sans-serif;
+font-size: 20px;
+line-height: 36px;
+color: #000000;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+}
+
+h3, h3 a, h3 a:hover, h3 a:visited {
+font-family: "Yanone Kaffeesatz", Arial, sans-serif;
+font-size: 50px;
+line-height: 30px;
+color: #000000;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+}
+
+h4, h4 a, h4 a:hover, h4 a:visited {
+font-family: "Yanone Kaffeesatz", Arial, sans-serif;
+font-size: 21px;
+line-height: 21px;
+color: #000000;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+}
+
+h5, h5 a, h5 a:hover, h5 a:visited {
+font-family: "Yanone Kaffeesatz", Arial, sans-serif;
+font-size: 14px;
+line-height: 18px;
+color: #000000;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+}
+
+h6, h6 a, h6 a:hover, h6 a:visited {
+font-family: "Yanone Kaffeesatz", Arial, sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+}
+
+blockquote {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 16px;
+line-height: 24px;
+color: #000000;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+}
+
+a {
+color: #000000;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+}
+
+a:hover {
+color: #000000;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+}
+
+h1.multi-post-title, h1.multi-post-title a, h1.multi-post-title a:hover, h1.multi-post-title a:visited {
+padding-left: 0px;
+background-position: top left;
+background-repeat: repeat;
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 24px;
+line-height: 30px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.multi-post-title {
+border-width: 0px;
+border-style: none;
+}
+
+div.post-inner, .post-inner-single {
+padding-top: 0px;
+padding-bottom: 0px;
+background-position: top left;
+background-repeat: repeat;
+border-width: 0px;
+border-style: none;
+}
+
+.post-header {
+padding-left: 0px;
+background-position: top left;
+background-repeat: repeat;
+border-width: 0px;
+border-style: none;
+}
+
+div.post-meta {
+background-position: top left;
+background-repeat: repeat;
+}
+
+.post-meta {
+border-width: 0px;
+border-style: none;
+padding-top: 0px;
+padding-bottom: 0px;
+}
+
+h2.post-header, h2.post-header a, h2.post-header a:hover, h2.post-header a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 24px;
+line-height: 30px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.post-meta, div.post-meta a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.post-taxonomy span {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.post-taxonomy a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+a.readmorecontent {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+h3#comments_title, h3#comments_title a, h3#comments_title a:hover, h3#comments_title a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 30px;
+line-height: 25px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+cite.comment_author {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.comment_time {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.comment_text {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+a.comment-reply-link, a.cancel-comment-reply-link {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+h3.respond, h3.respond a, h3.respond a:hover, h3.respond a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+form#commentform label {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.breadcrumbs-plus p span, div.breadcrumbs-plus p, div.breadcrumbs-plus p a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.breadcrumbs-plus p span.breadcrumbs-title {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.breadcrumbs-plus p strong {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wp-pagenavi a, .wp-pagenavi span {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wp-pagenavi span.current {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-mega-menu {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.wfm-mega-menu ul li .sub li.mega-hdr a.mega-hdr-a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-mega-menu ul.menu li a {
+font-family: Verdana,Geneva,Kalimati,sans-serif;
+font-size: 21px;
+line-height: 23px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-mega-menu ul li.current-menu-ancestor a, .wfm-mega-menu ul li.current-menu-item a {
+color: #cccccc;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-mega-menu ul.menu li:hover a {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-mega-menu ul li .sub li.mega-hdr a.mega-hdr-a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-mega-menu ul li .sub ul.sub-menu li a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-mega-menu ul li .sub ul.sub-menu li a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-mega-menu ul li .sub-container.non-mega li a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-mega-menu ul li .sub-container.non-mega li a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuh {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.ddsmoothmenuh ul li ul {
+width: 185px;
+}
+
+.ddsmoothmenuh ul li:hover,.ddsmoothmenuh ul li a.selected,.ddsmoothmenuh ul li a:hover,.ddsmoothmenuh ul li ul.sub-menu li, .ddsmoothmenuh ul li ul.sub-menu li a {
+background-color: #ffffff;
+}
+
+.ddsmoothmenuh ul li a:link,.ddsmoothmenuh ul li a:visited {
+font-family: Verdana,Geneva,Kalimati,sans-serif;
+font-size: 21px;
+line-height: 23px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuh ul li a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuh ul li.current-menu-ancestor a, .ddsmoothmenuh ul li.current-menu-item a {
+color: #0b86b3;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuh ul li  ul li a:link,.ddsmoothmenuh ul li  ul li a:visited {
+font-family: Verdana,Geneva,Kalimati,sans-serif;
+font-size: 16px;
+line-height: 14px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuh ul li  ul li a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.horizontal-menu {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+div.horizontal-menu ul li, div.horizontal-menu ul li a:link,div.horizontal-menu ul li a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 13px;
+line-height: 14px;
+color: #ffffff;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.horizontal-menu ul li.current-menu-ancestor a, .horizontal-menu ul li.current-menu-item a  {
+color: #ffffff;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.horizontal-menu ul li a:hover {
+color: #ffffff;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-vertical-mega-menu {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.wfm-vertical-mega-menu ul li .sub li.mega-hdr a.mega-hdr-a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-vertical-mega-menu ul li a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-vertical-mega-menu ul li.current-menu-ancestor a, .wfm-vertical-mega-menu ul li.current-menu-item a {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-vertical-mega-menu ul li a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-vertical-mega-menu ul li .sub li.mega-hdr a.mega-hdr-a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-vertical-mega-menu ul li .sub ul.sub-menu li a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-vertical-mega-menu ul li .sub ul.sub-menu li a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-vertical-mega-menu ul li .sub-container.non-mega li a {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.wfm-vertical-mega-menu ul li .sub-container.non-mega li a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuv {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.ddsmoothmenuv ul li a:link,.ddsmoothmenuv ul li a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuv ul li a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuv ul li.current-menu-ancestor a, .ddsmoothmenuv ul li.current-menu-item a {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuv ul li  ul li a:link,.ddsmoothmenuv ul li  ul li a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.ddsmoothmenuv ul li  ul li a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.vertical-menu a:link,.vertical-menu a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.vertical-menu  ul li.current-menu-item>a {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.vertical-menu a:hover {
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+ul.tabs li a {
+background-color: #0;
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+ul.tabs li a:hover {
+background-color: #0;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+ul.tabs li a.current {
+background-color: #0;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.tabs-wrapper div.panes {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.accordion-toggle {
+background-color: #0;
+}
+
+.accordion .current {
+background-color: #0;
+}
+
+div.accordion div.pane {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+h4.accordion-toggle, h4.accordion-toggle a, h4.accordion-toggle a:hover, h4.accordion-toggle a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.toggle_title {
+background-color: #0;
+}
+
+.acctogg_active {
+background-color: #0;
+}
+
+.toggle_title a.toggle-title {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+div.toggle_content {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+h3.slidertitle, h3.slidertitle a, h3.slidertitle a:hover, h3.slidertitle a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+p.slidertext {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.anyCaption h3.slidertitle, .s3caption h3.slidertitle, .anyCaption h3.slidertitle, .s3caption h3.slidertitle a, .anyCaption h3.slidertitle, .s3caption h3.slidertitle a:hover, .anyCaption h3.slidertitle, .s3caption h3.slidertitle a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.anyCaption p.slidertext, .s3caption p.slidertext {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+h1.super-title, h1.super-title a, h1.super-title a:hover, h1.super-title a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+h3.element-title, h3.element-title a, h3.element-title a:hover, h3.element-title a:visited {
+font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
+font-size: 12px;
+line-height: 15px;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+}
+
+.element-title {
+background-position: top left;
+background-repeat: repeat;
+border-width: 0px;
+border-style: none;
+}
+
