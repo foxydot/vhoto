@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms version="1.7.6">
+	<form labelPlacement="top_label" useCurrentUserAsAuthor="1" postAuthor="1" postCategory="1" postFormat="0" postStatus="publish">
+		<title><![CDATA[Enter a Photo Contest]]></title>
+		<button type="text">
+			<text><![CDATA[Submit]]></text>
+		</button>
+		<fields>
+			<field adminOnly="1" allowsPrepopulate="1" id="8" size="medium" type="text">
+				<inputName><![CDATA[user_role]]></inputName>
+				<label><![CDATA[user_role]]></label>
+			</field>
+			<field id="9" size="medium" type="section" displayOnly="1">
+				<conditionalLogic actionType="show" logicType="all">
+					<rules>
+						<rule fieldId="8" operator="is">
+							<value><![CDATA[subscriber]]></value>
+						</rule>
+					</rules>
+				</conditionalLogic>
+			</field>
+			<field id="10" isRequired="1" size="medium" type="name">
+				<label><![CDATA[Name]]></label>
+				<inputs>
+					<input id="10.3">
+						<label><![CDATA[First]]></label>
+					</input>
+					<input id="10.6">
+						<label><![CDATA[Last]]></label>
+					</input>
+				</inputs>
+			</field>
+			<field id="11" size="medium" type="address">
+				<label><![CDATA[Address]]></label>
+				<inputs>
+					<input id="11.1">
+						<label><![CDATA[Street Address]]></label>
+					</input>
+					<input id="11.2">
+						<label><![CDATA[Address Line 2]]></label>
+					</input>
+					<input id="11.3">
+						<label><![CDATA[City]]></label>
+					</input>
+					<input id="11.4">
+						<label><![CDATA[State / Province]]></label>
+					</input>
+					<input id="11.5">
+						<label><![CDATA[ZIP / Postal Code]]></label>
+					</input>
+					<input id="11.6">
+						<label><![CDATA[Country]]></label>
+					</input>
+				</inputs>
+			</field>
+			<field id="13" isRequired="1" size="medium" type="date" calendarIconType="none" dateType="datepicker">
+				<label><![CDATA[Birthdate]]></label>
+			</field>
+			<field id="12" isRequired="1" size="medium" type="checkbox">
+				<choices>
+					<choice>
+						<text><![CDATA[I have read and agree to the terms and conditions]]></text>
+					</choice>
+				</choices>
+			</field>
+			<field id="7" size="medium" type="section" displayOnly="1">
+			</field>
+			<field id="1" isRequired="1" size="medium" type="post_title">
+				<label><![CDATA[Photo Title]]></label>
+				<saveAsCPT><![CDATA[contest_entry]]></saveAsCPT>
+			</field>
+			<field id="2" isRequired="1" size="medium" type="post_image">
+				<label><![CDATA[Upload Your Photo]]></label>
+				<allowedExtensions><![CDATA[jpg, jpeg, png, gif]]></allowedExtensions>
+				<postFeaturedImage><![CDATA[1]]></postFeaturedImage>
+			</field>
+			<field id="6" size="medium" type="post_content">
+				<label><![CDATA[Description]]></label>
+				<maxLength><![CDATA[500]]></maxLength>
+			</field>
+			<field id="4" isRequired="1" size="medium" type="post_category" displayAllCategories="1" inputType="select">
+				<label><![CDATA[Select Category]]></label>
+				<categoryInitialItem><![CDATA[Select a category]]></categoryInitialItem>
+				<categoryInitialItemEnabled><![CDATA[1]]></categoryInitialItemEnabled>
+			</field>
+			<field id="3" isRequired="1" size="medium" type="select">
+				<label><![CDATA[Select Contest]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[Select a contest]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Demo Contest]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Demo Contest Three]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Demo Contest Two]]></text>
+					</choice>
+				</choices>
+				<populateTaxonomy><![CDATA[contest]]></populateTaxonomy>
+			</field>
+			<field adminOnly="1" id="5" size="medium" type="post_custom_field" postCustomFieldName="contest_entry_votes" inputType="number" numberFormat="decimal_dot">
+				<defaultValue><![CDATA[0]]></defaultValue>
+				<label><![CDATA[votes]]></label>
+			</field>
+		</fields>
+		<descriptionPlacement><![CDATA[below]]></descriptionPlacement>
+		<requireLogin><![CDATA[1]]></requireLogin>
+		<requireLoginMessage><![CDATA[You must be <a href="#login-box" class="login wpml-btn login-window">logged in</a> to participate in a contest.]]></requireLoginMessage>
+		<confirmations>
+			<confirmation type="message" id="51ca0677e62a3" isDefault="1">
+				<message><![CDATA[Thank you for entering!]]></message>
+				<name><![CDATA[Default Confirmation]]></name>
+			</confirmation>
+		</confirmations>
+		<notifications>
+			<notification id="51ca0677e6599">
+				<to><![CDATA[{admin_email}]]></to>
+				<subject><![CDATA[New submission from {form_title}]]></subject>
+				<message><![CDATA[{all_fields}]]></message>
+				<toType><![CDATA[email]]></toType>
+				<event><![CDATA[form_submission]]></event>
+				<name><![CDATA[Admin Notification]]></name>
+				<type><![CDATA[admin]]></type>
+			</notification>
+		</notifications>
+	</form>
+</forms>
