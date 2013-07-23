@@ -60,9 +60,7 @@ function msd_add_scripts() {
 	global $is_IE;
 	if(!is_admin()){
 		wp_enqueue_script('msd-jquery',get_stylesheet_directory_uri().'/lib/js/theme-jquery.js');
-		wp_enqueue_script('equalHeights',get_stylesheet_directory_uri().'/lib/js/jquery.equalheights.js');
 		if($is_IE){
-			wp_enqueue_script('columnizr',get_stylesheet_directory_uri().'/lib/js/jquery.columnizer.js');
 			wp_enqueue_script('ie-fixes',get_stylesheet_directory_uri().'/lib/js/ie-jquery.js');
 		}
 		if(is_front_page()){
