@@ -44,7 +44,7 @@ if (!class_exists('MSDContestUser')) {
         function gform_populate_user_role($value){
         	$user = wp_get_current_user();
         	$role = $user->roles;
-        	if(is_empty($role)){$role = 'anonymous';}
+        	if(empty($role)){$role = 'anonymous';}
         	return reset($role);
         }
         /*

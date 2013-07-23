@@ -169,9 +169,6 @@ if (!class_exists('MSDContestPackage')) {
         	if( !is_plugin_active( 'gravity-forms-custom-post-types/gfcptaddon.php' ) ) {
         		die( '<strong>ERROR:</strong> <a href="http://wordpress.org/plugins/gravity-forms-custom-post-types/" target="_blank">Gravity Forms + Custom Post Types</a> is required for this plugin to be installed.' );
         	}
-        	if( !is_plugin_active( 'gravityformsuserregistration/userregistration.php' ) ) {
-        		die( '<strong>ERROR:</strong> <a href="http://www.gravityhelp.com/downloads/add-ons/" target="_blank">Gravity Forms User Registration</a> is required for this plugin to be installed.' );
-        	}
         }
         /**
          * @desc Checks to see if the given plugin is active.
