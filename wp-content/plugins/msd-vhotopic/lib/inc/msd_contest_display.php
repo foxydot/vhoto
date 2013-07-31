@@ -203,7 +203,7 @@ if (!class_exists('MSDContestDisplay')) {
 
         	$daysthismonth = cal_days_in_month(CAL_GREGORIAN, date('m'), date("Y"));
         	$onemonthago = mktime() - $daysthismonth*3600*24;
-        	$onemonthfromvote = mktime(date("h",$votedate),date("i",$votedate),date("s",$votedate),date("m",$votedate),date("d",$votedate),date("Y",$votedate)) + $daysthismonth*3600*24;
+        	$onemonthfromvote = empty($votedate)?'':mktime(date("h",$votedate),date("i",$votedate),date("s",$votedate),date("m",$votedate),date("d",$votedate),date("Y",$votedate)) + $daysthismonth*3600*24;
         	
         	if(!$votedate){
         		switch($return){

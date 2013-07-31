@@ -1,4 +1,5 @@
 <?php
+if(!class_exists('Browser')){
 	/**
 	 * File: Browser.php
 	 * Author: Chris Schuld (http://chrisschuld.com/)
@@ -1053,4 +1054,5 @@
 
 	    }
     }
+}
 ?>

@@ -49,6 +49,11 @@ if (!class_exists('MSDContestManager')) {
 		  * Manage submissions
 		  */
 		 function msd_manage_contest_submission($data){
+		 	if($data['msd_manage_contest'] == 'delete'){
+		 		delete_option('contest_'.$data['contest_id'].'_meta');
+		 		wp_delete_term($data['contest_id'],'contest');
+		 		return TRUE;
+		 	}
 		 	if(isset($data['contest_name'])){ //editing or adding a contest
 		 		if(isset($data['contest_id'])){
 		 			$term_id = $data['contest_id'];
@@ -251,6 +256,7 @@ if (!class_exists('MSDContestManager')) {
 	</table>
 		<p class="submit">
 			<input type="submit" name="Submit" class="button-primary" value="Save Changes" />
+			<input type="button" name="DeleteButton" class="button-secondary delete-btn" value="Delete Contest" />
 			<input type="hidden" name="msd_manage_contest" value="save" style="display:none;" />
 		</p>
 	</form>
