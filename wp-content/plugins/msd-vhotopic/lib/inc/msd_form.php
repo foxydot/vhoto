@@ -49,7 +49,9 @@ if (!class_exists('MSDContestForm')) {
 			update_user_meta($user_id, 'birthdate', $entry['13']);
 			update_user_meta($user_id, 'terms_agreement', $entry['12']);
 			$user = new WP_User($user_id);
-			$user->set_role('contest');
+			if(!current_user_can('publish_contest_entry')){
+				$user->set_role('contest');
+			}
 		}
   } //End Class
 } //End if class exists statement
