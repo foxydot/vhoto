@@ -91,7 +91,7 @@ if (!class_exists('MSDContestEntryCPT')) {
 		        'hierarchical' => false,
 		        'description' => 'Vhotopic Contest Entries',
 		        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail'),
-		        'taxonomies' => array( 'contest' ),
+		        'taxonomies' => array( 'contest','category' ),
 		        'public' => true,
 		        'show_ui' => true,
 		        'show_in_menu' => true,

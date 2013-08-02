@@ -41,7 +41,7 @@ if (!class_exists('MSDContestDisplay')) {
 					'.$thumb.'
 				</a>
 			</div>
-		<div class="post-meta"><span class="date"><a href="'.get_post_permalink($image->ID).'">'.$image->post_date.'</a></span> | <span class="comments"><a title="Comment on '.$image->post_title.'" href="http://photocontest.msdlab2.com/V-Pictures/yacht2/#respond">No Comments</a></span></div>
+		<div class="post-meta"><span class="date"><a href="'.get_post_permalink($image->ID).'">'.$image->post_date.'</a></span> | <span class="comments"><a title="Comment on '.$image->post_title.'" href="'.get_permalink($image->ID).'#respond">'.get_comments_number($image->ID).' Comments</a></span></div>				
 		</div>
 		<div class="post-excerpt">'.$excerpt.'</div>
 		<div class="votes">Votes: <span class="total_votes">'.$votes.'</span></div>
@@ -81,6 +81,7 @@ if (!class_exists('MSDContestDisplay')) {
 				$images[$i]->votes = get_post_meta($image->ID,'contest_entry_votes',TRUE);
 				$i++;
 			}
+			usort($images,array(&$this,'sort_by_votes'));
 			return $images;
 		}
 		
@@ -95,7 +96,7 @@ if (!class_exists('MSDContestDisplay')) {
 				$images = $this->get_photos_by($key,$value);
 				switch($display){
 					case 'grid':
-						print $this->display_grid($images,$cols);
+						return $this->display_grid($images,$cols);
 						break;
 				}
 			} else {
@@ -125,10 +126,17 @@ if (!class_exists('MSDContestDisplay')) {
 								}
 							}
 							$images = $this->get_photos_by($key,$tax->slug);
-							print '<h2 class="'.$key.'-title title">'.$tax->name.'</h2>';
-							print $dates;
-							print $this->display_grid($images,$cols);
+							$i = 0;
+							if($images){
+								$i++;
+								print '<h2 class="'.$key.'-title title">'.$tax->name.'</h2>';
+								print $dates;
+								print $this->display_grid($images,$cols);
+							}
 						endforeach;
+						if($i==0){
+							print '<h2 class="'.$key.'-title title">Sorry, no '.$key.' images found.</h2>';
+						}
 						break;
 					case 'votes':
 					default:
@@ -197,7 +205,9 @@ if (!class_exists('MSDContestDisplay')) {
         
         //figure out if a user can vote in a given contest
         function msd_user_can_vote($user_id,$post_id,$return = 'boolean'){
-        	$contest = array_shift(get_the_terms($post_id,'contest'));
+        	$terms = get_the_terms($post_id,'contest');
+        	if(!$terms){return FALSE;}
+        	$contest = array_shift($terms);
         	$contest = $contest->term_id;
         	$votedate = get_user_meta($user_id,'voted_contest_'.$contest,TRUE);
 
@@ -238,6 +248,10 @@ if (!class_exists('MSDContestDisplay')) {
         			}
         		}
         	}
+        }
+        
+        function sort_by_votes( $a, $b ) {
+        	return $a->votes == $b->votes ? 0 : ( $a->votes < $b->votes ) ? 1 : -1;
         }
         
         //Logo for login page

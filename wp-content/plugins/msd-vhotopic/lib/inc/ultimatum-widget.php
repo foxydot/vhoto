@@ -6,12 +6,42 @@ class UltimatumContestDisplay extends WP_Widget {
     }
 
 	function widget($args, $instance) {
-		global $msd_contest,$posts;
+		global $msd_contest,$post,$posts;
 		extract( $args );
-		if($instance['key']=='query'){
-			print $msd_contest->form_class->display_grid($posts,$instance['cols']);
+		if(is_single()){
+			while ( have_posts() ) : the_post(); 
+			$social_sharing_toolkit = new MR_Social_Sharing_Toolkit();
+			$share = $social_sharing_toolkit->create_bookmarks(get_permalink($post->ID), $post->post_title.' on '.get_option('blogname'));
+			$votes = !empty($post->votes)?$post->votes:get_post_meta($post->ID,'contest_entry_votes',TRUE);
+				
+			?>			
+<div class="contest-grid contest-grid-single">
+	<div id="contest-entry-<?php the_ID(); ?>" class="entry-item post post-<?php the_ID(); ?>">
+		<div class="post-inner">
+			<div class="aligner">
+				<div class="featured-image">
+					<?php print wp_get_attachment_image( get_post_thumbnail_id(get_the_ID()), 'medium' ); ?>
+				</div>
+			<h4><?php the_title(); ?></h4>
+			<div class="post-meta"><span class="date"><a href="<?php get_post_permalink(); ?>"><?php echo get_the_date(); ?></a></span> | <span class="comments"><a title="Comment on " href="<?php get_post_permalink(); ?>#respond"><?php comments_number(); ?></a></span></div>
+			</div>
+			<div class="post-content"><?php the_content(); ?></div>
+			<div class="votes">Votes: <span class="total_votes"><?php print $votes; ?></span></div>
+			<?php print $msd_contest->display_class->msd_get_vote_button(get_the_ID()); ?>
+			<div class="sharing"><?php print $share; ?></div>
+		</div>
+	</div>
+</div>
+
+				<?php comments_template( '', true ); ?>
+			<?php 
+			endwhile;
 		} else {
-			$msd_contest->form_class->print_photos_by($instance);
+			if($instance['key']=='query'){
+				print $msd_contest->display_class->display_grid($posts,$instance['cols']);
+			} else {
+				$msd_contest->display_class->print_photos_by($instance);
+			}
 		}
     }
 

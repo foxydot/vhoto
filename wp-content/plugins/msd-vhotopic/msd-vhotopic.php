@@ -114,7 +114,7 @@ if (!class_exists('MSDContestPackage')) {
         		register_activation_hook( __FILE__, array( 'MSDContestForm', 'import_contest_entry_form' ) );
         	}
         	if(class_exists('MSDContestDisplay')){
-        		$this->form_class = new MSDContestDisplay();
+        		$this->display_class = new MSDContestDisplay();
         	}
         }
 
