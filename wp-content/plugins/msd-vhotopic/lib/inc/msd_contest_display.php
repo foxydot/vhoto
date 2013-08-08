@@ -129,22 +129,23 @@ if (!class_exists('MSDContestDisplay')) {
 							$i = 0;
 							if($images){
 								$i++;
-								print '<h2 class="'.$key.'-title title">'.$tax->name.'</h2>';
-								print $dates;
-								print $this->display_grid($images,$cols);
+								$ret .= '<h2 class="'.$key.'-title title">'.$tax->name.'</h2>';
+								$ret .= $dates;
+								$ret .= $this->display_grid($images,$cols);
 							}
 						endforeach;
 						if($i==0){
-							print '<h2 class="'.$key.'-title title">Sorry, no '.$key.' images found.</h2>';
+							//$ret .= '<h2 class="'.$key.'-title title">Sorry, no '.$key.' images found.</h2>';
 						}
 						break;
 					case 'votes':
 					default:
 						$images = $this->get_photos_by($key,$value);
-						print $this->display_grid($images,$cols);
+						$ret .= $this->display_grid($images,$cols);
 						break;
 				}
 			}
+			return $ret;
 		}
 		
 		function list_contests_by($atts){
@@ -174,7 +175,7 @@ if (!class_exists('MSDContestDisplay')) {
 				}
 			$list .= '<li><a href="/contests/'.$tax->slug.'"><h2 class="title">'.$tax->name.'</h2>'.$dates.'</a></li>';
 			endforeach;
-			print '<ul class="contest-list">'.$list.'</ul>';
+			return '<ul class="contest-list">'.$list.'</ul>';
 		}
 		
 		
