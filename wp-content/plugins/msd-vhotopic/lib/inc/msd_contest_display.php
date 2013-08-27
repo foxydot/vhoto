@@ -23,6 +23,20 @@ if (!class_exists('MSDContestDisplay')) {
 			add_shortcode('list_contests', array(&$this,'list_contests_by'));
 			add_shortcode('list-contests', array(&$this,'list_contests_by'));
 		}  
+        
+        public function in_contest_window($contest_id){
+            $meta = get_option('contest_'.$contest_id.'_meta');
+            $start_date = $meta['contest_start_date'];
+            $end_date = $meta['contest_end_date'];
+            $start = strtotime($meta['contest_start_date']);
+            $end = strtotime($meta['contest_end_date']);
+            $today = time();
+            if($today > $start && $today < $end){
+               return TRUE;
+            } else {
+               return FALSE;
+            }
+        }
 		function display_grid($images,$cols = 4){
 			foreach($images AS $image){
 				$thumb = get_the_post_thumbnail($image->ID, 'thumbnail');
@@ -55,7 +69,7 @@ if (!class_exists('MSDContestDisplay')) {
 		}
 		
 		
-		function get_photos_by($key = 'all',$value = NULL){			
+		function get_photos_by($key = 'all',$value = NULL,$include_closed = FALSE){			
 			$args = array( 'post_type' => 'contest_entry', 'numberposts' => -1 );
 			if(!empty($value)){
 				$args['order_by'] = 'meta_value';
@@ -76,13 +90,25 @@ if (!class_exists('MSDContestDisplay')) {
 			}
 			
 			$images = get_posts($args);
+            $filtered_images = array();
 			$i = 0;
 			foreach($images AS $image){
 				$images[$i]->votes = get_post_meta($image->ID,'contest_entry_votes',TRUE);
+                $images[$i]->contests = wp_get_post_terms($image->ID,'contest');
+                $images[$i]->open = $this->in_contest_window($images[$i]->contests[0]->term_id);
+                if($images[$i]->open){
+                    $filtered_images[]=$images[$i];
+                }
 				$i++;
 			}
-			usort($images,array(&$this,'sort_by_votes'));
-			return $images;
+            usort($filtered_images,array(&$this,'sort_by_votes'));
+            usort($images,array(&$this,'sort_by_votes'));
+            if($include_closed){
+                return $images;
+            } else {
+                return $filtered_images;
+            }
+			
 		}
 		
 		function print_photos_by($atts){
@@ -100,17 +126,17 @@ if (!class_exists('MSDContestDisplay')) {
 						break;
 				}
 			} else {
+                $cargs = array(
+                        'child_of'      => 0,
+                        'orderby'       => 'name',
+                        'order'         => 'ASC',
+                        'hide_empty'    => 0,
+                        'taxonomy'      => $key, //change this to any taxonomy
+                );
+                $taxterms = (array) get_terms($key,$cargs);
 				switch($key){
 					case 'contest':
 					case 'category':
-						$cargs = array(
-								'child_of'      => 0,
-								'orderby'       => 'name',
-								'order'         => 'ASC',
-								'hide_empty'    => 0,
-								'taxonomy'      => $key, //change this to any taxonomy
-						);
-						$taxterms = (array) get_terms($key,$cargs);
 						foreach ( $taxterms AS $tax) :
 							if($key=='contest'){
 								$meta = get_option('contest_'.$tax->term_id.'_meta');
