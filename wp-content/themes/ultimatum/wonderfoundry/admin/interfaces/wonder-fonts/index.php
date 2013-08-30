@@ -449,7 +449,6 @@ if (! function_exists("google_fonts_option")) {
 	}
 }
 
-
 if(isset($_GET['page']) &&  isset($_GET['task']) &&  $_GET['page']=='wonder-fonts' && $_GET["task"] == 'google'){
 	if (! function_exists("get_google_fonts")){
 	function get_google_fonts(){

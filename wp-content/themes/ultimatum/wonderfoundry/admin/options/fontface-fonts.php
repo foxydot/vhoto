@@ -1,7 +1,7 @@
 <?php
 $options = array(
 	array(
-		"name" => sprintf(__('Fonts located in "%s"',THEME_ADMIN_LANG_DOMAIN),'<code>'.str_replace( WP_CONTENT_DIR, '', THEME_FONTFACE_DIR ).'</code>'),
+		"name" => sprintf(__('Fonts located in "%s"',THEME_ADMIN_LANG_DOMAIN),'<code>'.THEME_FONTFACE_URI.'</code>'),
 		"type" => "start"
 	),
 		array(

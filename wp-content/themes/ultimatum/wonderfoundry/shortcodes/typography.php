@@ -12,7 +12,7 @@ function shortcode_roundbox($atts, $content = null, $code) {
 		'icon'=>''
 	), $atts));
 if(strlen($icon)>=1){
-		return '<div class="roundbox" style="background-color:#'.$backgroundcolor.';color:#'.$color.';border:'.$borderwidth.'px '.$borderstyle.' #'.$bordercolor.'"><div class="boxinner"><div style="width:32px;min-height:32px;background-image:url('.THEME_URI.'/images/icons/32/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"></div><div class="after-32-icon">' . do_shortcode(trim($content)) . '</div></div></div>';
+		return '<div class="roundbox" style="background-color:#'.$backgroundcolor.';color:#'.$color.';border:'.$borderwidth.'px '.$borderstyle.' #'.$bordercolor.'"><div class="boxinner"><div style="width:32px;min-height:32px;background-image:url('.THEME_IMGLIB_URI.'/icons/32/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"></div><div class="after-32-icon">' . do_shortcode(trim($content)) . '</div></div></div>';
 	} else {
 		return '<div class="roundbox" style="background-color:#'.$backgroundcolor.';color:#'.$color.';border:'.$borderwidth.'px '.$borderstyle.' #'.$bordercolor.'"><div class="boxinner">' . do_shortcode(trim($content)) . '</div></div>';
 	}
@@ -29,7 +29,7 @@ function shortcode_cornerbox($atts, $content = null, $code) {
 		'icon'=>''
 	), $atts));
 	if(strlen($icon)>=1){
-		return '<div class="cornerbox" style="background-color:#'.$backgroundcolor.';color:#'.$color.';border:'.$borderwidth.'px '.$borderstyle.' #'.$bordercolor.'"><div class="boxinner"><div style="width:32px;min-height:32px;background-image:url('.THEME_URI.'/images/icons/32/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"></div><div class="after-32-icon">' . do_shortcode(trim($content)) . '</div></div></div>';
+		return '<div class="cornerbox" style="background-color:#'.$backgroundcolor.';color:#'.$color.';border:'.$borderwidth.'px '.$borderstyle.' #'.$bordercolor.'"><div class="boxinner"><div style="width:32px;min-height:32px;background-image:url('.THEME_IMGLIB_URI.'/icons/32/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"></div><div class="after-32-icon">' . do_shortcode(trim($content)) . '</div></div></div>';
 	} else {
 		return '<div class="cornerbox" style="background-color:#'.$backgroundcolor.';color:#'.$color.';border:'.$borderwidth.'px '.$borderstyle.' #'.$bordercolor.'"><div class="boxinner">' . do_shortcode(trim($content)) . '</div></div>';
 	}
@@ -46,7 +46,7 @@ function shortcode_infobox($atts, $content = null, $code) {
 		'icon'=>''
 	), $atts));
 	if(strlen($icon)>=1){
-		return '<div class="infobox" style="background-color:#'.$backgroundcolor.';color:#'.$color.';border-color:#'.$bordercolor.';border-style:'.$borderstyle.'"><div class="boxinner"><div style="width:32px;min-height:32px;background-image:url('.THEME_URI.'/images/icons/32/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"></div><div class="after-32-icon">' . do_shortcode(trim($content)) . '</div></div></div><div class="clearboth"></div>';
+		return '<div class="infobox" style="background-color:#'.$backgroundcolor.';color:#'.$color.';border-color:#'.$bordercolor.';border-style:'.$borderstyle.'"><div class="boxinner"><div style="width:32px;min-height:32px;background-image:url('.THEME_IMGLIB_URI.'/icons/32/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"></div><div class="after-32-icon">' . do_shortcode(trim($content)) . '</div></div></div><div class="clearboth"></div>';
 	} else {
 		return '<div class="infobox" style="background-color:#'.$backgroundcolor.';color:#'.$color.';border-color:#'.$bordercolor.';border-style:'.$borderstyle.'"><div class="boxinner">' . do_shortcode(trim($content)) . '</div></div>';
 	}
@@ -72,11 +72,11 @@ function shortcode_button($atts, $content = null, $code) {
 	if(strlen($icon)>=1){
 		
 		if($buttonsize=='small'){
-			$iconclass= 'style="width:16px;min-height:16px;background-image:url('.THEME_URI.'/images/icons/16/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"';
+			$iconclass= 'style="width:16px;min-height:16px;background-image:url('.THEME_IMGLIB_URI.'/icons/16/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"';
 		} elseif($buttonsize=='medium'){
-			$iconclass= 'style="width:24px;min-height:24px;background-image:url('.THEME_URI.'/images/icons/24/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"';
+			$iconclass= 'style="width:24px;min-height:24px;background-image:url('.THEME_IMGLIB_URI.'/icons/24/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"';
 		}else {
-			$iconclass= 'style="width:32px;min-height:32px;background-image:url('.THEME_URI.'/images/icons/32/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"';
+			$iconclass= 'style="width:32px;min-height:32px;background-image:url('.THEME_IMGLIB_URI.'/icons/32/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;float:left;"';
 		}
 		$content = '<a href="'.$buttonlink.'" class="button '.$buttonsize.' '.$rel.'" style="background-color:#'.$backgroundcolor.';" rel="'.$rel.'"><span class="bspan" style="color:#'.$color.'"><span class="icon" '.$iconclass.'></span><span class="buttontext">' . trim($content) . '</span><span class="buttonhover" style="background-color:#'.$hoverbgcolor.';color:#'.$hovercolor.'"></span><span class="buttonnorm" style="background-color:#'.$backgroundcolor.';color:#'.$color.'"></span></span></a>';
 	} else {
@@ -117,7 +117,7 @@ function shortcode_icontext( $atts, $content = null ) {
     		$fpx=32;
     	}
     }
-    $iconclass= 'background-image:url('.THEME_URI.'/images/icons/'.$px.'/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;';
+    $iconclass= 'background-image:url('.THEME_IMGLIB_URI.'/icons/'.$px.'/'.$icon.'.png); background-repeat:no-repeat;background-position:top left;';
     if($tag!='p') {
     $output= '<'.$tag;
     
@@ -163,7 +163,7 @@ function shortcode_list($atts, $content = null ) {
     $list .= '<ul class="iconizedlist">';
     do_shortcode($content); 
     foreach ($list_array as $li => $li_attr_array) {
-    	 $iconclass= 'background-image:url('.THEME_URI.'/images/icons/24/'.$li_attr_array['icon'].'.png); background-repeat:no-repeat;background-position:top left;float:left;width:24px;height:24px;';
+    	 $iconclass= 'background-image:url('.THEME_IMGLIB_URI.'/icons/24/'.$li_attr_array['icon'].'.png); background-repeat:no-repeat;background-position:top left;float:left;width:24px;height:24px;';
 		$list .= '<li class="icon-list"><span class="list-span" style="'.$iconclass.'"></span>'.$li_attr_array['content'].'</li>';
 	}
     $list .= '</ul>';

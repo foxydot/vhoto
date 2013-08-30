@@ -573,8 +573,21 @@ echo $styler;
                if (have_posts()) :
                if($instance["mtitle"]=='true'){
                    ?>
-
-                   <h1 class="multi-post-title"><?php echo strip_tags(wp_title('',false,'left'));?></h1>
+                   <h1 class="multi-post-title">
+					<?php if ( is_day() ) : ?>
+							<?php printf( __( 'Daily Archives: %s', 'ultimatum' ), '<span>' . get_the_date() . '</span>' ); ?>
+						<?php elseif ( is_month() ) : ?>
+							<?php printf( __( 'Monthly Archives: %s', 'ultimatum' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'ultimatum' ) ) . '</span>' ); ?>
+						<?php elseif ( is_year() ) : ?>
+							<?php printf( __( 'Yearly Archives: %s', 'ultimatum' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'ultimatum' ) ) . '</span>' ); ?>
+						<?php elseif(is_search()) : ?>
+							<?php printf( __( 'Search Results for: %s', 'ultimatum' ), '<span>' . get_search_query() . '</span>' ); ?>
+						<?php elseif(is_author()) : ?>
+							<?php printf( __( 'Author Archives: %s', 'twentyeleven' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?>
+						<?php else :?>
+							<?php remove_all_filters('wp_title'); echo strip_tags(wp_title('',false,'left'));?>
+						<?php endif; ?>
+                  </h1>
                    <?php
                }
                   global $wp_query;

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fields>	
+	<fieldset name="general" label="General Settings">
+		<field name="delay"
+			   type="text"
+			   default="5000"
+			   label="Delay"
+			   unit="ms"
+			   description="The global time delay for image rotation">
+		</field>
+		<field name="autoPlay"
+			   type="checkbox"
+			   default="true"
+			   label="Auto Play"
+			   description="Initially start the slider">
+		</field>
+		<field name="randomize"
+			   type="checkbox"
+			   default="false"
+			   label="Randomize"
+			   description="Random slide order">
+		</field>
+		<field name="touchEnabled"
+			   type="checkbox"
+			   default="true"
+			   label="Touch Enabled"
+			   description="Enable swipe function on touch devices">
+		</field>
+		<field name="scrollMouseWheel"
+			   type="checkbox"
+			   default="true"
+			   label="Scroll Mouse Wheel"
+			   description="Enable/disable mousewheel scroll">
+		</field>
+		<field name="hideCaptionAtResolution"
+			   type="text"
+			   default="0"
+			   label="Hide Caption Resolution"
+			   unit="px"
+			   description="Hide caption under the defined screen resolution">
+		</field>
+		<field type="hr"></field>
+		<field name="pauseOnHover"
+			   type="checkbox"
+			   default="false"
+			   label="Pause On Hover"
+			   description="Pause slider timer on mouse hover">
+		</field>
+		<field name="playOnce"
+			   type="checkbox"
+			   default="false"
+			   label="Play Once"
+			   description="Stop slider after all slides play once">
+		</field>
+		<field name="selectOnHover"
+			   type="checkbox"
+			   default="false"
+			   label="Select Slide On Hover"
+			   description="Switch current slide on button hover">
+		</field>
+		<field type="hr"></field>
+		<field name="loadGoogleFont"
+			   type="checkbox"
+			   default="false"
+			   label="Load Google Font"
+			   description="Enable/disable Google font">
+		</field>
+		<field name="googleFont"
+			   type="text"
+			   label="Google Font"
+			   class="text-sidebar-long"
+			   default="Open+Sans:400,800,300,600"
+			   description="The google font family to load"></field>
+		<field type="control"
+			   ctype="enable"
+			   parent="loadGoogleFont"
+			   child="googleFont"
+			   value="true"
+		   ></field>
+	</fieldset>
+	<fieldset name="buttons" label="Buttons">
+		<field name="showButton"
+			   type="checkbox"
+			   default="true"
+			   label="Show Buttons"
+			   description="Show the navigation buttons">
+		</field>
+		<field name="showNumber"
+			   type="checkbox"
+			   default="true"
+			   label="Show Number"
+			   description="Show number label inside buttons">
+		</field>
+		<field name="showPlayPauseButton"
+			   type="checkbox"
+			   default="true"
+			   label="Show Play/Pause Button"
+			   description="Show play/pause button">
+		</field>
+		<field name="showPreviousNextArrow"
+			   type="checkbox"
+			   default="false"
+			   label="Show Directional Arrows"
+			   description="Show previous/next arrow buttons in the navigation">
+		</field>
+		<field name="showCenterPreviousNextArrow"
+			   type="checkbox"
+			   default="true"
+			   label="Show Center Arrows"
+			   description="Show side directional arrow buttons on the center">
+		</field>
+		<field name="showButtonOnHover"
+			   type="checkbox"
+			   default="false"
+			   label="Show Buttons On Hover"
+			   description="Show navigation buttons on hover">
+		</field>
+		<field name="buttonAlign"
+			   type="list"
+			   default="BR"
+			   label="Button Align"
+			   description="Horizontal/vertical button alignment">
+				  <option value="BL" text="Bottom Left"></option>
+				  <option value="BC" text="Bottom Center"></option>
+				  <option value="BR" text="Bottom Right"></option>
+				  <option value="TL" text="Top Left"></option>
+				  <option value="TC" text="Top Center"></option>
+				  <option value="TR" text="Top Right"></option>						
+				  <option value="LB" text="Left Bottom"></option>
+				  <option value="LC" text="Left Center"></option>
+				  <option value="LT" text="Left Top"></option>
+				  <option value="RB" text="Right Bottom"></option>
+				  <option value="RC" text="Right Center"></option>
+				  <option value="RT" text="Right Top"></option>
+		</field>
+		<field name="buttonWidth"
+			   type="text"
+			   default="20"
+			   label="Button Width"
+			   unit="px"
+			   description="The width of the buttons">
+		</field>
+		<field name="buttonHeight"
+			   type="text"
+			   default="20"
+			   label="Button Height"
+			   unit="px"
+			   description="The height of the buttons">
+		</field>
+		<field name="buttonBorderRadius"
+			   type="text"
+			   default="2"
+			   label="Button Border Radius"
+			   unit="px"
+			   description="Rounded corner radius of buttons">
+		</field>
+		<field name="buttonMargin"
+			   type="text"
+			   default="1"
+			   label="Button Margin"
+			   unit="px"
+			   description="The margin size between thumbnails/buttons">
+		</field>
+		<field name="buttonOffsetHorizontal"
+			   type="text"
+			   label="Horizontal Offset"
+			   default="10"
+			   unit="px"
+			   description="Nagivation bar can be moved this pixel count left(e.g. -10) or right"></field>
+		<field name="buttonOffsetVertical"
+			   type="text"
+			   label="Vertical Offset"
+			   default="10"
+			   unit="px"
+			   description="Nagivation bar can be moved this pixel count up (e. g. 20) or down"></field>
+	</fieldset>
+	<fieldset name="thumbs" label="Thumbnails">
+		<field name="showThumb"
+			   type="checkbox"
+			   default="false"
+			   label="Show Thumbnails"
+			   description="Show thumbnails instead of buttons">
+		</field>
+		<field name="thumbWidth"
+			   type="text"
+			   label="Thumb Width"
+			   default="72"
+			   unit="px"
+			   description="The basic Width of one Thumbnail (only if thumbnails are visible)"></field>
+		<field name="thumbHeight"
+			   type="text"
+			   label="Thumb Height"
+			   default="54"
+			   unit="px"
+			   description="The basic Height of one Thumbnail (only if thumbnails are visible)"></field>
+		<field type="control"
+			   ctype="enable"
+			   parent="showThumb"
+			   child="thumbWidth"
+			   value="true"
+		   ></field>
+		<field type="control"
+			   ctype="enable"
+			   parent="showThumb"
+			   child="thumbHeight"
+			   value="true"
+		   ></field>		
+	</fieldset>
+	<fieldset name="timer" label="Timer">
+		<field name="showTimer"
+			   type="checkbox"
+			   default="true"
+			   label="Show Timer"
+			   description="Show the timer">
+		</field>
+		<field name="timerType"
+			   type="list"
+			   default="clock"
+			   label="Timer Type"
+			   description="The timer bar type.">
+				  <option value="clock" text="Clock"></option>
+				  <option value="line" text="Line"></option>
+		</field>
+		<field name="timerArcSize"
+			   type="text"
+			   label="Clock Timer Arc Size"
+			   default="2"
+			   unit="px"
+			   description="Clock timer arc size"></field>
+		<field name="timerAlign"
+			   type="radio"
+			   default="top"
+			   label="Timer Align"
+			   description="Set the timer indicator line position to bottom or top">
+				  <option value="bottom" text="Bottom"></option>
+				  <option value="top" text="Top"></option>
+		</field>		
+		<field type="control"
+			   ctype="enable"
+			   parent="showTimer"
+			   child="timerType"
+			   value="true"
+		   ></field>
+		<field type="control"
+			   ctype="enable"
+			   parent="showTimer"
+			   child="timerArcSize"
+			   value="true"
+		   ></field>  
+		<field type="control"
+			   ctype="enable"
+			   parent="showTimer"
+			   child="timerAlign"
+			   value="true"
+		   ></field>
+		<field type="control"
+			   ctype="enable"
+			   parent="timerType"
+			   child="timerArcSize"
+			   value="clock"
+		   ></field> 
+		<field type="control"
+			   ctype="enable"
+			   parent="timerType"
+			   child="timerAlign"
+			   value="line"
+		   ></field>  
+	</fieldset>
+	<fieldset name="appearance" label="Appearance">
+		<field name="shadow"
+			   type="list"
+			   default="2"
+			   label="Shadow Type"
+			   description="The Shadow display underneath the banner. The shadow apply to fixed and responsive modes only, the full width slider don't have a shadow.">
+				  <option value="0" text="No Shadow"></option>
+				  <option value="1" text="1"></option>
+				  <option value="2" text="2"></option>
+				  <option value="3" text="3"></option>
+		</field>
+		<field name="showTooltip"
+			   type="checkbox"
+			   default="true"
+			   label="Show Tolltip"
+			   description="Show image/text tooltip">
+		</field>
+		<field name="tooltipType"
+			   type="list"
+			   default="image"
+			   label="Tooltip Type"
+			   description="The tooltip type">
+				  <option value="image" text="Image"></option>
+				  <option value="text" text="Text"></option>
+		</field>		
+		<field type="control"
+			   ctype="enable"
+			   parent="showTooltip"
+			   child="tooltipType"
+			   value="true"
+		   ></field>
+		<field name="backgroundColor"
+			   type="color"
+			   default="#000000"
+			   label="Background Color"
+			   description="Slider wrapper div background color, for transparent slider, leave empty.">
+		</field>
+		<field name="padding"
+			   type="text"
+			   default="5"
+			   label="Padding (border)"
+			   description="The wrapper div padding, if it has value, then together with background color it it will make border around the slider.">
+		</field>
+		<field name="showBackgroundImage"
+			   type="checkbox"
+			   default="false"
+			   label="Show Background Image"
+			   description="Put background image to the main slider wrapper">
+		</field>
+		<field name="background_image"
+			   type="text"
+			   default=""
+			   label="Background Image Url"
+			   class="text-sidebar-long"
+			   description="The background image that will be on the slider wrapper. Will be shown at slider preloading.">
+		</field>
+		<field type="control"
+			   ctype="enable"
+			   parent="showBackgroundImage"
+			   child="background_image"
+			   value="true"
+		   ></field>
+	</fieldset>
+	<fieldset name="position" label="Position">
+		<field name="position"
+			   type="list"
+			   default="center"
+			   label="Position on the page"
+			   description="The position of the slider on the page, (float:left, float:right, margin:0px auto;)">
+				  <option value="left" text="Left"></option>
+				  <option value="center" text="Center"></option>
+				  <option value="right" text="Right"></option>
+		</field>
+		<field name="marginTop"
+			   type="text"
+			   label="Margin Top"
+			   default="0"
+			   unit="px"
+			   description="The top margin of the slider wrapper div"></field>
+		<field name="marginBottom"
+			   type="text"
+			   label="Margin Bottom"
+			   default="0"
+			   unit="px"
+			   description="The bottom margin of the slider wrapper div"></field>
+		<field name="marginLeft"
+			   type="text"
+			   label="Margin Left"
+			   default="0"
+			   unit="px"
+			   description="The left margin of the slider wrapper div"></field>
+		<field name="marginRight"
+			   type="text"
+			   label="Margin Right"
+			   default="0"
+			   unit="px"
+			   description="The right margin of the slider wrapper div"></field>
+		<field type="control"
+			   ctype="disable"
+			   parent="position"
+			   child="marginLeft"
+			   value="center"></field>
+		<field type="control"
+			   ctype="disable"
+			   parent="position"
+			   child="marginRight"
+			   value="center"></field>
+	</fieldset>
+	<fieldset name="troubleshooting" label="Troubleshooting">
+		<field name="jqueryNoconflict"
+			   type="list"
+			   default="on"
+			   label="JQuery No Conflict Mode"
+			   description="Turns on / off jquery noconflict mode. You can play with this option when you have some javascript conflicts.">
+				  <option value="on" text="On"></option>
+				  <option value="off" text="Off"></option>
+		</field>
+		<field name="jsToBody"
+			   type="checkbox"
+			   default="false"
+			   label="Put JS Includes To Body"
+			   description="Putting the js to body (in addition to head) is good for fixing some javascript conflicts of type: TypeError: jQuery('#apex_slider_1_1').show().apexSlider is not a function">
+		</field>
+		<field name="outputType"
+			   type="list"
+			   default="none"
+			   label="Output Filters Protection"
+			   description="Activate a protection against wordpress output filters that adds html blocks to the shortcode output like P and BR">
+				  <option value="none" text="None"></option>
+				  <option value="compress" text="By Compressing Output"></option>
+				  <option value="echo" text="By Echo Output"></option>
+		</field>
+	</fieldset>
+</fields>
