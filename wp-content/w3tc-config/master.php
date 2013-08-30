@@ -95,7 +95,7 @@ return array(
 	),
 	'pgcache.memcached.persistant' => true,
 	'pgcache.check.domain' => false,
-	'pgcache.cache.query' => false,
+	'pgcache.cache.query' => true,
 	'pgcache.cache.home' => true,
 	'pgcache.cache.feed' => false,
 	'pgcache.cache.nginx_handle_xml' => false,
@@ -724,6 +724,4 @@ return array(
 	),
 	'plugin.license_key' => '',
 	'plugin.type' => '',
-	'wordpress.home' => 'http://vhotopic.sp',
-	'pgcache.bad_behavior_path' => '',
 );

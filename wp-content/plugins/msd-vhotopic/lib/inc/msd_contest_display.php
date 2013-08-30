@@ -43,8 +43,12 @@ if (!class_exists('MSDContestDisplay')) {
 				$url_array = wp_get_attachment_image_src( get_post_thumbnail_id($image->ID), 'large' );
 				$url = $url_array['0'];
 				$excerpt = $image->post_excerpt?$image->post_excerpt:msd_trim_headline($image->post_content);
-				$social_sharing_toolkit = new MR_Social_Sharing_Toolkit();
-				$share = $social_sharing_toolkit->create_bookmarks(get_permalink($image->ID), $image->post_title.' on '.get_option('blogname'));
+                if(class_exists('MR_Social_Sharing_Toolkit')){
+    				$social_sharing_toolkit = new MR_Social_Sharing_Toolkit();
+    				$share = $social_sharing_toolkit->create_bookmarks(get_permalink($image->ID), $image->post_title.' on '.get_option('blogname'));
+                } elseif (function_exists('st_makeEntries')){
+                    $share = st_makeEntries();
+                }
 				$votes = !empty($image->votes)?$image->votes:get_post_meta($image->ID,'contest_entry_votes',TRUE);
 				$grid .= '
 <div id="contest-entry-'.$image->ID.'" class="entry-item post post-'.$image->ID.'">
