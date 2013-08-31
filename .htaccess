@@ -1,13 +1,15 @@
-# BEGIN s2Member GZIP exclusions
-<IfModule mod_rewrite.c>
-	RewriteEngine On
-	RewriteBase /
-	RewriteCond %{QUERY_STRING} (^|\?|&)s2member_file_download\=.+ [OR]
-	RewriteCond %{QUERY_STRING} (^|\?|&)no-gzip\=1
-	RewriteRule .* - [E=no-gzip:1]
+# BEGIN W3TC Browser Cache
+<IfModule mod_deflate.c>
+    <IfModule mod_headers.c>
+        Header append Vary User-Agent env=!dont-vary
+    </IfModule>
+        AddOutputFilterByType DEFLATE text/css text/x-component application/x-javascript application/javascript text/javascript text/x-js text/html text/richtext image/svg+xml text/plain text/xsd text/xsl text/xml image/x-icon application/json
+    <IfModule mod_mime.c>
+        # DEFLATE by extension
+        AddOutputFilter DEFLATE js css htm html xml
+    </IfModule>
 </IfModule>
-# END s2Member GZIP exclusions
-
+# END W3TC Browser Cache
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On

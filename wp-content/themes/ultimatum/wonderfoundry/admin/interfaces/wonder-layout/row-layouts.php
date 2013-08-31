@@ -37,6 +37,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 <body>
 
 <ol id="selectable">
+<!-- 1 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -45,6 +46,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 </table>
 
 </li>
+<!-- 2 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -54,8 +56,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="25%">25%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 3 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -64,8 +66,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="33%">33%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 4 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -73,8 +75,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="50%">50%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 5 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -83,8 +85,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="50%">50%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 6 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -93,8 +95,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="25%">25%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 7 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -103,8 +105,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="25%">25%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 8 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -112,8 +114,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="75%">75%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 9 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -121,8 +123,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="25%">25%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 10 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -130,8 +132,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="66%">66%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 11 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -139,8 +141,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="33%">33%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 12 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -153,8 +155,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="75%" colspan="3">75%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 13 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -168,6 +170,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 14 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -180,8 +183,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="50%" colspan="2">50%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 15 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -194,8 +197,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="50%" colspan="2">50%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 16 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -208,8 +211,8 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 		<td width="50%" colspan="2">50%</td>
 	</tr>
 </table>
-
 </li>
+<!-- 17 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -222,6 +225,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 18 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -234,6 +238,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 19 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -246,6 +251,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 20 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -258,6 +264,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 21 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -270,6 +277,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 22 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -282,6 +290,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 23 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -294,6 +303,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 24 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -306,7 +316,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
-
+<!-- 25 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -320,6 +330,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 26 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -333,6 +344,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 27 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -346,6 +358,7 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
+<!-- 28 -->
 <li class="ui-widget-content">
 <table class="preview">
 	<tr>
@@ -359,7 +372,116 @@ ol li {float:left;margin-left:5px;margin-bottom:5px;padding:3px;}
 	</tr>
 </table>
 </li>
-
+<!-- 29 -->
+<li class="ui-widget-content">
+<table class="preview">
+	<tr>
+		
+		<td width="75%" colspan="3">75%</td>
+		<td width="25%" rowspan="2">25%</td>
+	</tr>
+	<tr>
+		<td width="25%">25%</td>
+		<td width="25%">25%</td>
+		<td width="25%">25%</td>
+	</tr>
+</table>
+</li>
+<!-- 30 -->
+<li class="ui-widget-content">
+<table class="preview">
+	<tr>
+		<td width="25%" rowspan="2">25%</td>
+		<td width="25%" rowspan="2">25%</td>
+		<td width="50%" colspan="2">50%</td>
+	</tr>
+	<tr>
+		<td width="25%">25%</td>
+		<td width="25%">25%</td>
+	</tr>
+</table>
+</li>
+<!-- 31 -->
+<li class="ui-widget-content">
+<table class="preview">
+	<tr>
+		<td width="50%" colspan="2">50%</td>
+		<td width="25%" rowspan="2">25%</td>
+		<td width="25%" rowspan="2">25%</td>
+	</tr>
+	<tr>
+		<td width="25%">25%</td>
+		<td width="25%">25%</td>	
+	</tr>
+</table>
+</li>
+<!-- 32 -->
+<li class="ui-widget-content">
+<table class="preview">
+	<tr>
+		<td width="25%" rowspan="2">25%</td>
+		<td width="50%" colspan="2">50%</td>
+		<td width="25%" rowspan="2">25%</td>
+	</tr>
+	<tr>
+		<td width="25%">25%</td>
+		<td width="25%">25%</td>
+	</tr>
+</table>
+</li>
+<!-- 33 -->
+<li class="ui-widget-content">
+<table class="preview">
+	<tr>
+		<td width="25%" rowspan="2">25%</td>
+		<td width="75%" colspan="2">75%</td>
+	</tr>
+	<tr>
+		<td width="50%">50%</td>
+		<td width="25%">25%</td>
+	</tr>
+</table>
+</li>
+<!-- 34 -->
+<li class="ui-widget-content">
+<table class="preview">
+	<tr>
+		<td width="25%" rowspan="2">25%</td>
+	    <td width="75%" colspan="2">75%</td>
+	</tr>
+	<tr>
+		<td width="25%">25%</td>
+		<td width="50%">50%</td>
+	
+	</tr>
+</table>
+</li>
+<!-- 35 -->
+<li class="ui-widget-content">
+<table class="preview">
+	<tr>
+		<td width="75%" colspan="2">75%</td>
+		<td width="25%" rowspan="2">25%</td>
+	</tr>
+	<tr>
+		<td width="25%">25%</td>
+		<td width="50%">50%</td>
+	</tr>
+</table>
+</li>
+<!-- 36 -->
+<li class="ui-widget-content">
+<table class="preview">
+	<tr>
+		<td width="75%" colspan="2">75%</td>
+		<td width="25%" rowspan="2">25%</td>
+	</tr>
+	<tr>
+		<td width="50%">50%</td>
+		<td width="25%">25%</td>
+	</tr>
+</table>
+</li>
 </ol>
 <center><form>
 <input id="select-result" name="row_style" type="hidden" />

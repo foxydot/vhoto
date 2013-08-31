@@ -263,7 +263,7 @@ class optionGenerator {
         	if(isset($fontfacer)){
             	$fcss = array_unique($fontfacer);
             	if(count($fcss)>=1){
-            		$url = THEME_URI.'/fonts/fontface';
+            		$url = THEME_FONTFACE_URI;
 	            	foreach ($fcss as $font_str){
 					$font_info = explode("|", $font_str);
 					$stylesheet = THEME_FONTFACE_DIR.'/'.$font_info[0].'/stylesheet.css';
@@ -343,7 +343,7 @@ class optionGenerator {
 	            	$phpcontent .= '<script type="text/javascript" src="<?php bloginfo("stylesheet_directory"); ?>/js/cufon-yui.js"></script>'."\n";
 		            foreach ($cufjs as $cjsi){
 		            	//
-						$phpcontent.='<script type="text/javascript" src="<?php bloginfo("stylesheet_directory"); ?>/fonts/cufon/'.$cjsi.'"></script>'."\n";
+						$phpcontent.='<script type="text/javascript" src="'.THEME_CUFON_URI.$cjsi.'"></script>'."\n";
 		            }
 		            $phpcontent.='<script type="text/javascript">'."\n";
 		            //$phpcontent.="jQuery(document).ready(function() {\n";

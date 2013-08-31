@@ -176,18 +176,7 @@ if(get_theme_option('general', 'ultimatum_seo')){
 	do_action( 'ultimatum_meta' );
 } else { 
 ?>
-<title>
-<?php
-	global $page, $paged;
-	wp_title( '|', true, 'right' );
-	bloginfo( 'name' );
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		echo " | $site_description";
-	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', THEME_LANG_DOMAIN ), max( $paged, $page ) );
-	?>
-</title>
+<title><?php wp_title( '-', true, 'right' ); ?></title>
 <?php } ?>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <?php 

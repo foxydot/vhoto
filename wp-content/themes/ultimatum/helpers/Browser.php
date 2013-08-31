@@ -1054,5 +1054,5 @@ if(!class_exists('Browser')){
 
 	    }
     }
-}
+    }
 ?>

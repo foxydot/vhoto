@@ -60,6 +60,7 @@ class WonderWorks {
 		require_once (THEME_ADMIN_FUNCTIONS . '/option-media-upload.php');
 		require_once (THEME_ADMIN_FUNCTIONS . '/tinymce.php');
 		
+		
 	}
 	
 	
@@ -127,6 +128,7 @@ class WonderWorks {
 	 * @param array $theme
 	 */
 	function DefineConstants($theme){
+		$ultimatumversion = get_option('ultimatum_version');
 		define('THEME_NAME', $theme['theme_name']);
 		define('THEME_SLUG', 'ultimatum');
 		if(isset($theme['theme_slug'])){
@@ -152,21 +154,7 @@ class WonderWorks {
 		
 		define('THEME_AJAX', THEME_URI . '/wonderfoundry/ajax');
 		define('THEME_HELPERS', THEME_URI . '/helpers');
-		if(get_stylesheet_directory().'/fonts/cufon'){
-			define('THEME_CUFON_DIR', get_stylesheet_directory() . '/fonts/cufon');
-			define('THEME_CUFON_URI', get_stylesheet_directory_uri() . '/fonts/cufon');
-		} else {
-			define('THEME_CUFON_URI', THEME_URI . '/fonts/cufon');
-			define('THEME_CUFON_DIR', THEME_DIR . '/fonts/cufon');
-		}
 		
-		if(get_stylesheet_directory().'/fonts/fontface'){
-			define('THEME_FONTFACE_DIR', get_stylesheet_directory() . '/fonts/fontface');
-			define('THEME_FONTFACE_URI', get_stylesheet_directory_uri() . '/fonts/fontface');
-		} else {
-			define('THEME_CUFON_URI', THEME_URI . '/fonts/fontface');
-			define('THEME_CUFON_DIR', THEME_DIR . '/fonts/fontface');
-		}
 	
 		
 		
@@ -204,10 +192,30 @@ class WonderWorks {
 			if(!is_dir(THEME_CACHE_DIR)) mkdir(THEME_CACHE_DIR);
 			define('THEME_CACHE_URI', $uploaduri.'/'.THEME_CODE);
 		} else {
-			define('THEME_CACHE_DIR', THEME_DIR. '/cache');
-			define('THEME_CACHE_URI', THEME_URI . '/cache');
+				if($ultimatumversion<2.37038){
+				define('THEME_CACHE_DIR', THEME_DIR. '/cache');
+				define('THEME_CACHE_URI', THEME_URI . '/cache');
+			} else {
+				define('THEME_CACHE_DIR', $uploaddir.'/'.THEME_CODE);
+				if(!is_dir(THEME_CACHE_DIR)) mkdir(THEME_CACHE_DIR);
+				define('THEME_CACHE_URI', $uploaduri.'/'.THEME_CODE);
+			}
 		}
-		
+		if($ultimatumversion<2.37038){
+			define('THEME_CUFON_URI', THEME_URI . '/fonts/cufon');
+			define('THEME_CUFON_DIR', THEME_DIR . '/fonts/cufon');
+			define('THEME_FONTFACE_DIR', THEME_URI . '/fonts/fontface');
+			define('THEME_FONTFACE_URI', THEME_DIR . '/fonts/fontface');
+		} else {
+			$dir = WP_PLUGIN_DIR.'/ultimatum-library';
+			$url = WP_PLUGIN_URL.'/ultimatum-library';
+			define('THEME_CUFON_DIR', $dir. '/fonts/cufon');
+			define('THEME_CUFON_URI', $url . '/fonts/cufon');
+			define('THEME_IMGLIB_URI', $url . '/images');
+			define('THEME_IMGLIB_DIR', $dir . '/images');
+			define('THEME_FONTFACE_DIR', $dir . '/fonts/fontface');
+			define('THEME_FONTFACE_URI', $url . '/fonts/fontface');
+		}
 	}
 	
 	function LoadDatabase(){
@@ -535,8 +543,8 @@ class WonderWorks {
 			update_option('ultimatum_general',$ultimatum);
 			update_option('ultimatum_version', 2.37);
 		}
-		if($ultimatumversion<2.37036){
-			update_option('ultimatum_version', 2.37036);
+		if($ultimatumversion<2.37037){
+			update_option('ultimatum_version', 2.37037);
 		}	   		
 	}
 }

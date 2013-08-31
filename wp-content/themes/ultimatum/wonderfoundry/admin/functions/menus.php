@@ -49,11 +49,71 @@ if(isset($_GET['page'])){
 }
 
 add_action('admin_notices', 'notices');
+$ultimatumversion = get_option('ultimatum_version');
+if($ultimatumversion>=2.37038){
+add_filter('site_transient_update_themes', 'ultimatum_update_push');
+add_filter('transient_update_themes', 'ultimatum_update_push');
+function ultimatum_update_push($value) {
+
+	$ultimatum_update = ultimatum_update_check();
+
+	if ( $ultimatum_update ) {
+		$value->response['ultimatum'] = $ultimatum_update;
+	}
+
+	return $value;
+
+}
+function ultimatum_update_check() {
+	global $wp_version;
+	$ultimatumversion = get_option('ultimatum_version');
+	$apikey = get_option('ultimatum_api');
+	$ultimatum_update = get_transient('ultimatum-update');
+	if ( !$ultimatum_update ) {
+		$url = 'http://api.ultimatumtheme.com/';
+		$options = array(
+				'body' => array(
+						'task'=>'updatecheck',
+						'ultimatum_version' => $ultimatumversion,
+						'wp_version' => $wp_version,
+						'php_version' => phpversion(),
+						'uri' => home_url(),
+						'api_key' => $apikey,
+						'user-agent' => "WordPress/$wp_version;"
+				)
+		);
+
+		$response = wp_remote_post($url, $options);
+		$ultimatum_update = wp_remote_retrieve_body($response);
+		// If an error occurred, return FALSE, store for 1 hour
+		if ( $ultimatum_update == 'error' || is_wp_error($ultimatum_update) || !is_serialized($ultimatum_update) ) {
+			set_transient('ultimatum-update', array('new_version' => $ultimatumversion), 60*60); // store for 1 hour
+			return FALSE;
+		}
+
+		// Else, unserialize
+		$ultimatum_update = maybe_unserialize($ultimatum_update);
+		//print_r($ultimatum_update);die();
+
+		// And store in transient
+		set_transient('ultimatum-update', $ultimatum_update, 60*60*24); // store for 24 hours
+	}
+
+	// If we're already using the latest version, return FALSE
+	if ( version_compare($ultimatumversion, $ultimatum_update['new_version'], '>=') )
+		return FALSE;
+
+	return $ultimatum_update;
+}
+}
+
+
+
 function notices(){
 	$ultimatumversion = get_option('ultimatum_version');
 	global $wp_version;
 	$url = 'http://api.ultimatumtheme.com/';
-$options = array(
+	$options = array(
 				'body' => array(
 						'task'=>'update_check',
 						'ultimatum_version' => $ultimatumversion,
@@ -66,6 +126,11 @@ $options = array(
 		if(function_exists(ultdupdater)){
 			$options = ultdupdater();
 		}
+	$apikey = get_option('ultimatum_api');
+	if(strlen($apikey)!=0){
+		$options['api_key']=$apikey;
+		$options['task']="updatecheck";
+	}
 	$response = wp_remote_post($url, $options);
 	$ultimatum_update = unserialize(wp_remote_retrieve_body($response));
 	if($ultimatum_update['version']>$ultimatumversion){
@@ -74,14 +139,20 @@ $options = array(
 	if ( is_multisite() && !current_user_can('update_core') )
 		return false;
 
-	if($has_update){
-		if ( current_user_can('update_core') ) {
-			$msg = sprintf( __('%2$s %1$s is available! <a href="%4$s" class="thickbox thickbox-preview">Check out what\'s new</a> <a href="%3$s">Please update now</a>.'), $has_update, THEME_NAME, admin_url( 'admin.php?page=wonder-update'),'http://api.ultimatumtheme.com/chlog.php?id='.$ultimatum_update['id'].'&TB_iframe=1&width=480&height=320' );
-		} else {
-			$msg = sprintf( __('%2$s %1$s is available! Please notify the site administrator.'), $has_update, THEME_NAME );
-		}
-		echo "<div class='update-nag'>$msg</div>";
-}
+		if($has_update){
+			if ( current_user_can('update_core') ) {
+				if($ultimatumversion>=2.37038){
+					$update_url = wp_nonce_url('update.php?action=upgrade-theme&amp;theme=ultimatum', 'upgrade-theme_ultimatum');
+				} else {
+					$update_url =  admin_url( 'admin.php?page=wonder-update');
+				}
+				$msg = sprintf( __('%2$s %1$s is available! <a href="%4$s" class="thickbox thickbox-preview">Check out what\'s new</a> <a href="%3$s">Please update now</a>.'), $has_update, THEME_NAME,$update_url,'http://api.ultimatumtheme.com/chlog.php?id='.$ultimatum_update['id'].'&TB_iframe=1&width=480&height=320' );
+			} else {
+				$msg = sprintf( __('%2$s %1$s is available! Please notify the site administrator.'), $has_update, THEME_NAME );
+			}
+			echo "<div class='update-nag'>$msg</div>";
+	}
+
 }
 add_action('init','ultimatum_scripts_base');
 add_action('init','ultimatum_styles_base');
