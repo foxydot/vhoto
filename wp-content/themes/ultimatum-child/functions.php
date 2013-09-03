@@ -34,7 +34,7 @@ if(!function_exists('requireDir')){
 		unset($dh, $dir, $file, $requiredFile);
 	}
 }
-requireDir(get_stylesheet_directory() . '/lib/inc');
+//requireDir(get_stylesheet_directory() . '/lib/inc');
 
 
 /*
