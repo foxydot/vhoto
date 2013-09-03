@@ -347,16 +347,31 @@ if (!class_exists('GFCPTAddonBase')) {
 
         /*
          * Get a hierarchical list of taxonomies
+         * NOTE: alterations to made to accomdate handling of contest dates.
          */
         function load_taxonomy_hierarchical( $taxonomy ) {
-            $args = array(
-                'taxonomy'      => $taxonomy,
-                'orderby'       => 'name',
-                'hierarchical'  => 1,
-                'hide_empty'    => 0
-            );
-            $terms = get_categories( $args );
-            
+            if($taxonomy == 'contest'){
+                $all_contests = get_terms('contest',array('hide_empty'=>FALSE));
+                foreach($all_contests AS $k => $v){
+                    $meta = get_option('contest_'.$v->term_id.'_meta');
+                    $all_contests[$k]->start_date = $meta['contest_start_date']; 
+                    $all_contests[$k]->end_date = $meta['contest_end_date'];
+                    $start = strtotime($meta['contest_start_date']);
+                    $end = strtotime($meta['contest_end_date']);
+                    $today = time();
+                    if($today > $start && $today < $end){
+                        $terms[] = $all_contests[$k];
+                    } 
+                }
+            } else {
+                $args = array(
+                    'taxonomy'      => $taxonomy,
+                    'orderby'       => 'name',
+                    'hierarchical'  => 1,
+                    'hide_empty'    => 0
+                );
+                $terms = get_categories( $args );
+            }
             if ( array_key_exists("errors",$terms) ) {
               return $terms;
             }
