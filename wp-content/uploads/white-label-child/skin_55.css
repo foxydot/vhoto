@@ -1,4 +1,5 @@
 body {
+background-image: url(http://www.vhotopic.com/wp-content/uploads/white-label-child/VHOTO,LLC/debut_light_@2X.png);
 background-position: top left;
 background-repeat: repeat;
 font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
@@ -26,9 +27,9 @@ text-decoration: none;
 }
 
 h2, h2 a, h2 a:hover, h2 a:visited {
-font-family: Verdana,Geneva,Kalimati,sans-serif;
+font-family: "Arial Black",Gadget,sans-serif;
 font-size: 20px;
-line-height: 21px;
+line-height: 36px;
 color: #000000;
 font-weight: bold;
 font-style: normal;
@@ -37,7 +38,7 @@ text-decoration: none;
 
 h3, h3 a, h3 a:hover, h3 a:visited {
 font-family: "Arial Black",Gadget,sans-serif;
-font-size: 24px;
+font-size: 50px;
 line-height: 30px;
 color: #000000;
 font-weight: bold;
@@ -46,11 +47,11 @@ text-decoration: none;
 }
 
 h4, h4 a, h4 a:hover, h4 a:visited {
-font-family: Verdana,Geneva,Kalimati,sans-serif;
-font-size: 18px;
-line-height: 20px;
+font-family: "Arial Black",Gadget,sans-serif;
+font-size: 21px;
+line-height: 21px;
 color: #000000;
-font-weight: normal;
+font-weight: bold;
 font-style: normal;
 text-decoration: none;
 }
@@ -101,6 +102,7 @@ text-decoration: none;
 
 h1.multi-post-title, h1.multi-post-title a, h1.multi-post-title a:hover, h1.multi-post-title a:visited {
 padding-left: 0px;
+background-color: #e0dddf;
 background-position: top left;
 background-repeat: repeat;
 font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
@@ -168,7 +170,7 @@ text-decoration: none;
 
 div.post-taxonomy span {
 font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
-font-size: 12px;
+font-size: 13px;
 line-height: 15px;
 color: #000000;
 font-weight: normal;
@@ -198,7 +200,7 @@ text-decoration: none;
 
 h3#comments_title, h3#comments_title a, h3#comments_title a:hover, h3#comments_title a:visited {
 font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
-font-size: 20px;
+font-size: 30px;
 line-height: 25px;
 color: #000000;
 font-weight: normal;
@@ -294,14 +296,14 @@ text-decoration: none;
 font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
 font-size: 12px;
 line-height: 15px;
-color: #000000;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
 }
 
 .wp-pagenavi span.current {
-color: #000000;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
@@ -323,9 +325,9 @@ text-decoration: none;
 }
 
 .wfm-mega-menu ul.menu li a {
-font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
-font-size: 12px;
-line-height: 15px;
+font-family: Verdana,Geneva,Kalimati,sans-serif;
+font-size: 21px;
+line-height: 23px;
 color: #000000;
 font-weight: normal;
 font-style: normal;
@@ -333,7 +335,7 @@ text-decoration: none;
 }
 
 .wfm-mega-menu ul li.current-menu-ancestor a, .wfm-mega-menu ul li.current-menu-item a {
-color: #000000;
+color: #cccccc;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
@@ -397,7 +399,7 @@ width: 185px;
 }
 
 .ddsmoothmenuh ul li:hover,.ddsmoothmenuh ul li a.selected,.ddsmoothmenuh ul li a:hover,.ddsmoothmenuh ul li ul.sub-menu li, .ddsmoothmenuh ul li ul.sub-menu li a {
-background-color: #371493;
+background-color: #1e4296;
 }
 
 .ddsmoothmenuh ul li ul li:hover, .ddsmoothmenuh ul li ul li a:hover {
@@ -429,7 +431,7 @@ text-decoration: none;
 }
 
 .ddsmoothmenuh ul li  ul li a:link,.ddsmoothmenuh ul li  ul li a:visited {
-font-family: Verdana,Geneva,Kalimati,sans-serif;
+font-family: Arial,Helvetica,Garuda,sans-serif;
 font-size: 16px;
 line-height: 14px;
 color: #ffffff;

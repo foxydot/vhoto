@@ -47,7 +47,14 @@ if (!class_exists('MSDContestDisplay')) {
     				$social_sharing_toolkit = new MR_Social_Sharing_Toolkit();
     				$share = $social_sharing_toolkit->create_bookmarks(get_permalink($image->ID), $image->post_title.' on '.get_option('blogname'));
                 } elseif (function_exists('st_makeEntries')){
-                    $share = st_makeEntries();
+                    $share = '';
+                    $share .= '<span class="st_facebook_hcount" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Facebook"></span>';
+                    $share .= '<span class="st_twitter_hcount" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Twitter"></span>';
+                    //$share .= '<span class="st_email_buttons" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Email"></span>';
+                    //$share .= '<span class="st_sharethis_buttons" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="ShareThis"></span>';
+                    //$share .= '<span class="st_fblike_buttons" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Facebook Like"></span>';
+                    //$share .= '<span class="st_plusone_buttons" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Google +1"></span>';
+                    $share .= '<span class="st_pinterest _hcount" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Pinterest"></span>';
                 }
 				$votes = !empty($image->votes)?$image->votes:get_post_meta($image->ID,'contest_entry_votes',TRUE);
 				$grid .= '

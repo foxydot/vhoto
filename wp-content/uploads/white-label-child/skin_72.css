@@ -1,6 +1,6 @@
 body {
 background-position: top left;
-background-repeat: repeat;
+background-repeat: no-repeat;
 font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
 font-size: 12px;
 line-height: 15px;
@@ -15,26 +15,6 @@ margin-top: 0px;
 margin-bottom: 0px;
 }
 
-a#logo {
-font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
-font-size: 36px;
-line-height: 42px;
-color: #000000;
-font-weight: normal;
-font-style: normal;
-text-decoration: none;
-}
-
-span#tagline {
-font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
-font-size: 12px;
-line-height: 15px;
-color: #000000;
-font-weight: normal;
-font-style: normal;
-text-decoration: none;
-}
-
 h1, h1 a, h1 a:hover, h1 a:visited {
 font-family: "Arial Black",Gadget,sans-serif;
 font-size: 36px;
@@ -46,11 +26,11 @@ text-decoration: none;
 }
 
 h2, h2 a, h2 a:hover, h2 a:visited {
-font-family: "Arial Black",Gadget,sans-serif;
-font-size: 30px;
-line-height: 36px;
+font-family: Arial,Helvetica,Garuda,sans-serif;
+font-size: 13px;
+line-height: 14px;
 color: #000000;
-font-weight: bold;
+font-weight: normal;
 font-style: normal;
 text-decoration: none;
 }
@@ -416,42 +396,50 @@ margin-bottom: 0px;
 width: 200px;
 }
 
+.ddsmoothmenuh ul li:hover,.ddsmoothmenuh ul li a.selected,.ddsmoothmenuh ul li a:hover,.ddsmoothmenuh ul li ul.sub-menu li, .ddsmoothmenuh ul li ul.sub-menu li a {
+background-color: #1e4296;
+}
+
+.ddsmoothmenuh ul li ul li:hover, .ddsmoothmenuh ul li ul li a:hover {
+background-color: #000000;
+}
+
 .ddsmoothmenuh ul li a:link,.ddsmoothmenuh ul li a:visited {
-font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
-font-size: 12px;
-line-height: 15px;
-color: #000000;
+font-family: Verdana,Geneva,Kalimati,sans-serif;
+font-size: 19px;
+line-height: 19px;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
 }
 
 .ddsmoothmenuh ul li a:hover {
-color: #000000;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
 }
 
 .ddsmoothmenuh ul li.current-menu-ancestor a, .ddsmoothmenuh ul li.current-menu-item a {
-color: #000000;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
 }
 
 .ddsmoothmenuh ul li  ul li a:link,.ddsmoothmenuh ul li  ul li a:visited {
-font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
-font-size: 12px;
-line-height: 15px;
-color: #000000;
+font-family: Verdana,Geneva,Kalimati,sans-serif;
+font-size: 16px;
+line-height: 14px;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
 }
 
 .ddsmoothmenuh ul li  ul li a:hover {
-color: #000000;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
@@ -464,23 +452,23 @@ margin-bottom: 0px;
 
 div.horizontal-menu ul li, div.horizontal-menu ul li a:link,div.horizontal-menu ul li a:visited {
 font-family: "Lucida Sans Unicode","Lucida Grande",Garuda,sans-serif;
-font-size: 12px;
-line-height: 15px;
-color: #000000;
+font-size: 11px;
+line-height: 11px;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
 }
 
 .horizontal-menu ul li.current-menu-ancestor a, .horizontal-menu ul li.current-menu-item a  {
-color: #000000;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
 }
 
 div.horizontal-menu ul li a:hover {
-color: #000000;
+color: #ffffff;
 font-weight: normal;
 font-style: normal;
 text-decoration: none;
