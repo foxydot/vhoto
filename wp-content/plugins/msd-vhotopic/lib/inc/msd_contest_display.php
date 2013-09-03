@@ -54,7 +54,7 @@ if (!class_exists('MSDContestDisplay')) {
                     //$share .= '<span class="st_sharethis_buttons" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="ShareThis"></span>';
                     //$share .= '<span class="st_fblike_buttons" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Facebook Like"></span>';
                     //$share .= '<span class="st_plusone_buttons" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Google +1"></span>';
-                    $share .= '<span class="st_pinterest _hcount" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" displayText="Pinterest"></span>';
+                    $share .= '<span class="st_pinterest _hcount" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Pinterest"></span>';
                 }
 				$votes = !empty($image->votes)?$image->votes:get_post_meta($image->ID,'contest_entry_votes',TRUE);
 				$grid .= '
