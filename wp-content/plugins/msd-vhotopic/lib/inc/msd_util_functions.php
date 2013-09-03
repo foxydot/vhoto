@@ -54,3 +54,14 @@ function ts_var($var){
 	ts_data(var_export( $var , true ));
 }
 endif;
+
+add_action('wp_head','msdlab_add_fb_meta');
+if(!function_exists('msdlab_add_fb_meta')){
+    function msdlab_add_fb_meta(){
+        global $post;
+        if(get_the_post_thumbnail($post->ID)){
+            $imageurl = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
+            print '<meta property="og:image" content="'.$imageurl.'" />';
+        }
+    }
+}
