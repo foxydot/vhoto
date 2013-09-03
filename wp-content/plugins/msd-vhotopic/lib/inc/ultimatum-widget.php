@@ -10,8 +10,15 @@ class UltimatumContestDisplay extends WP_Widget {
 		extract( $args );
 		if(is_single()){
 			while ( have_posts() ) : the_post(); 
-			$social_sharing_toolkit = new MR_Social_Sharing_Toolkit();
-			$share = $social_sharing_toolkit->create_bookmarks(get_permalink($post->ID), $post->post_title.' on '.get_option('blogname'));
+			if(class_exists('MR_Social_Sharing_Toolkit')){
+                    $social_sharing_toolkit = new MR_Social_Sharing_Toolkit();
+                    $share = $social_sharing_toolkit->create_bookmarks(get_permalink($image->ID), $image->post_title.' on '.get_option('blogname'));
+                } elseif (function_exists('st_makeEntries')){
+                    $share = '';
+                    $share .= '<span class="st_facebook" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Facebook"></span>';
+                    $share .= '<span class="st_twitter" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Twitter"></span>';
+                    $share .= '<span class="st_pinterest" st_title="'.$image->post_title.'" st_url="'.get_permalink($image->ID).'" st_image="'.$url.'" displayText="Pinterest"></span>';
+                }
 			$votes = !empty($post->votes)?$post->votes:get_post_meta($post->ID,'contest_entry_votes',TRUE);
 				
 			?>			
