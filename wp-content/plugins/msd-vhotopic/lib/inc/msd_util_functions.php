@@ -26,6 +26,36 @@ if ( ! function_exists( 'msd_trim_headline' ) ) :
 		//return $text;
 	}
 endif;
+
+if ( ! function_exists( 'msd_post_excerpt' ) ) :
+    function msd_post_excerpt($post) {
+            if($post->post_excerpt != ''){
+                return $post->post_excerpt;
+            }
+            $text = $post->post_content;
+
+            $text = strip_shortcodes( $text );
+            $text = preg_replace("/<img[^>]+\>/i", "", $text); 
+            $text = apply_filters('the_content', $text);
+            $text = str_replace(']]>', ']]&gt;', $text);
+            $text = strip_tags($text);
+            $excerpt_length = apply_filters('excerpt_length', $length);
+            $excerpt_more = apply_filters('excerpt_more',false);
+            $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
+            if ( count($words) > $excerpt_length ) {
+                array_pop($words);
+                $text = implode(' ', $words);
+                $text = $text . $excerpt_more;
+            } else {
+                $text = implode(' ', $words);
+            }
+    
+        
+        return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
+        //return $text;
+    }
+endif;
+
 /**
  * @desc Checks to see if the given plugin is active.
  * @return boolean
@@ -61,7 +91,7 @@ if(!function_exists('msdlab_add_fb_meta')){
         global $post;
         if(get_the_post_thumbnail($post->ID)){
             $imageurl = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
-            print '<meta property="og:image" content="'.$imageurl.'" />';
+            print '<meta property="og:image" content="'.$imageurl[0].'" />';
         }
     }
 }

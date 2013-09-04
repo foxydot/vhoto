@@ -29,10 +29,10 @@ class UltimatumContestDisplay extends WP_Widget {
 				<div class="featured-image">
 					<?php print wp_get_attachment_image( get_post_thumbnail_id(get_the_ID()), 'medium' ); ?>
 				</div>
-			<h4><?php the_title(); ?></h4>
-			<div class="post-meta"><span class="date"><a href="<?php get_post_permalink(); ?>"><?php echo get_the_date(); ?></a></span> | <span class="comments"><a title="Comment on " href="<?php get_post_permalink(); ?>#respond"><?php comments_number(); ?></a></span></div>
 			</div>
-			<div class="post-content"><?php the_content(); ?></div>
+			<h4><?php the_title(); ?></h4>
+			<div class="post-meta"><span class="comments"><a title="Comment on <?php the_title(); ?>" href="<?php get_post_permalink(); ?>#respond"><?php comments_number(); ?></a></span></div>
+			<div class="post-excerpt"><?php print $post->excerpt; ?></div>
 			<div class="votes">Votes: <span class="total_votes"><?php print $votes; ?></span></div>
 			<?php print $msd_contest->display_class->msd_get_vote_button(get_the_ID()); ?>
 			<div class="sharing"><?php print $share; ?></div>

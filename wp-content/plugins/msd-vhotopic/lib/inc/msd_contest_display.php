@@ -42,7 +42,6 @@ if (!class_exists('MSDContestDisplay')) {
 				$thumb = get_the_post_thumbnail($image->ID, 'thumbnail');
 				$url_array = wp_get_attachment_image_src( get_post_thumbnail_id($image->ID), 'large' );
 				$url = $url_array['0'];
-				$excerpt = $image->post_excerpt?$image->post_excerpt:msd_trim_headline($image->post_content);
                 if(class_exists('MR_Social_Sharing_Toolkit')){
     				$social_sharing_toolkit = new MR_Social_Sharing_Toolkit();
     				$share = $social_sharing_toolkit->create_bookmarks(get_permalink($image->ID), $image->post_title.' on '.get_option('blogname'));
@@ -62,9 +61,10 @@ if (!class_exists('MSDContestDisplay')) {
 					'.$thumb.'
 				</a>
 			</div>
-		<div class="post-meta"><span class="date"><a href="'.get_post_permalink($image->ID).'">'.$image->post_date.'</a></span> | <span class="comments"><a title="Comment on '.$image->post_title.'" href="'.get_permalink($image->ID).'#respond">'.get_comments_number($image->ID).' Comments</a></span></div>				
-		</div>
-		<div class="post-excerpt">'.$excerpt.'</div>
+		 </div>
+        <div class="post-title">'.$image->post_title.'</div>
+		<div class="post-meta"><span class="comments"><a title="Comment on '.$image->post_title.'" href="'.get_permalink($image->ID).'#respond">'.get_comments_number($image->ID).' Comments</a></span></div>				
+		<div class="post-excerpt">'.msd_post_excerpt($image).'</div>
 		<div class="votes">Votes: <span class="total_votes">'.$votes.'</span></div>
 		'.$this->msd_get_vote_button($image).'
 		<div class="sharing">'.$share.'</div>
